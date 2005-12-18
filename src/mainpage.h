@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/mainpage.h,v 1.1.1.1 2005/12/14 20:38:27 burnett Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/mainpage.h,v 1.2 2005/12/17 22:49:28 burnett Exp $
 // Mainpage for doxygen
 
 /*! \mainpage package Interleave
@@ -11,6 +11,11 @@
   - InterleaveAlg   Gaudi algorithm that manages the insertion
   - SampledBackground Spectrum to insert flag particles at the trigger rate
   - BackgroundSelection Manage selection of background events from external database
+
+  @section job JobOptions
+
+@param RootFile     set root file name to pass to the backgroundSelection object  
+@param TreeName     ["MeritTuple"] name of tree
 
   <hr>
   \section notes release notes
