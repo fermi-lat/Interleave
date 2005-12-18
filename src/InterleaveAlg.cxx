@@ -2,7 +2,7 @@
 
 @brief declaration and definition of the class InterleaveAlg
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/InterleaveAlg.cxx,v 1.3 2005/12/17 22:49:28 burnett Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/InterleaveAlg.cxx,v 1.4 2005/12/18 03:17:37 burnett Exp $
 
 */
 
@@ -91,12 +91,12 @@ StatusCode InterleaveAlg::initialize(){
             return StatusCode::FAILURE;
         }
         m_meritTuple = static_cast<TTree*>(ptr);
+    }
         m_magLatLeaf = m_meritTuple->GetLeaf("PtMagLat");
         if(m_magLatLeaf==0) {
             log << MSG::ERROR << "PtMagLat leaf not found in the tuple" << endreq;
             return StatusCode::FAILURE;
         }
-    }
 
     // set initial default values
     s_triggerRate = m_selector->triggerRate(0.);
@@ -112,7 +112,6 @@ StatusCode InterleaveAlg::execute()
     MsgStream   log( msgSvc(), name() );
 
     setFilterPassed(false); // since this is on a branch, and we want the sequence to fail
-
     // check that the TDS has an appropriate pseudo-background 
 
     SmartDataPtr<Event::McParticleCol> particles(eventSvc(), EventModel::MC::McParticleCol);
