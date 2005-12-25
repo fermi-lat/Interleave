@@ -2,7 +2,7 @@
 
 @brief declaration and definition of the class InterleaveAlg
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/InterleaveAlg.cxx,v 1.5 2005/12/18 22:50:43 burnett Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/InterleaveAlg.cxx,v 1.6 2005/12/25 21:44:30 burnett Exp $
 
 */
 
@@ -99,7 +99,13 @@ StatusCode InterleaveAlg::initialize(){
         return StatusCode::FAILURE;
     }
 
+    // these will not be copied from the old tuple.
+    m_selector->disable("EvtRun");       
+    m_selector->disable("EvtEventId");   
+    m_selector->disable("EvtElapsedTime");
+    m_selector->disable("EvtLiveTime");  
     m_selector->disable("Pt*");
+
 
     // set initial default values
     s_triggerRate = m_selector->triggerRate(0.);
@@ -164,6 +170,7 @@ StatusCode InterleaveAlg::finalize(){
     MsgStream log(msgSvc(), name());
 
     log << MSG::INFO << "Processed "<< m_count << " sampled background events, of which "<< m_downlink<< " were passed." << endreq; 
+    delete m_selector;
     return sc;
 }
 
