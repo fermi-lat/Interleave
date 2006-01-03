@@ -1,7 +1,7 @@
 /**  @file BackgroundSelection.cxx
     @brief implementation of class BackgroundSelection
     
-  $Header$  
+  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.cxx,v 1.4 2005/12/25 21:44:30 burnett Exp $  
 */
 
 #include "BackgroundSelection.h"
@@ -16,9 +16,11 @@
 //------------------------------------------------------------------------
 BackgroundSelection::BackgroundSelection(const std::string& filename, const std::string& treename)
 : m_event(0)
+, m_tree(0)
+, m_file(0)
 {
 
-    TFile* m_file = new TFile(filename.c_str(), "readonly");
+    m_file = new TFile(filename.c_str(), "readonly");
     if( 0==m_file || !m_file->IsOpen()){
         throw std::invalid_argument( "Could not open the root file ");
     }
