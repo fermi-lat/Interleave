@@ -1,7 +1,7 @@
 /**  @file BackgroundSelection.cxx
     @brief implementation of class BackgroundSelection
     
-  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.cxx,v 1.5 2006/01/03 20:56:49 burnett Exp $  
+  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.cxx,v 1.6 2006/01/03 22:30:51 burnett Exp $  
 */
 
 #include "BackgroundSelection.h"
@@ -81,14 +81,14 @@ void BackgroundSelection::selectEvent(double /* maglat */)
 double BackgroundSelection::triggerRate(double/* maglat */)
 {
     //TODO
-    return 20.; // testing
+    return 2000.; // testing
 }
 
 //------------------------------------------------------------------------
 double BackgroundSelection::downlinkRate(double/* maglat */)
 {
     //TODO
-    return 1.; //testing
+    return 300.; //testing
 }
 void BackgroundSelection::disable(const char* pattern)
 {
