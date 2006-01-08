@@ -2,7 +2,7 @@
 
 @brief declaration  of the class InterleaveAlg
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/InterleaveAlg.h,v 1.3 2005/12/17 22:49:28 burnett Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/InterleaveAlg.h,v 1.4 2005/12/18 03:17:37 burnett Exp $
 
 */
 #ifndef InterleaveAlg_h
@@ -14,6 +14,7 @@ $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/InterleaveAlg.h,v 1.3 2005/
 #include "GaudiKernel/Property.h"
 class BackgroundSelection;
 class INTupleWriterSvc;
+class ILivetimeSvc;
 class TTree;
 class TFile;
 class TLeaf;
@@ -35,8 +36,8 @@ public:
     StatusCode execute();
     StatusCode finalize();
 
-    static double triggerRate(){
-        return s_triggerRate;
+    static double rate(){
+        return s_rate;
     }
 
     
@@ -50,6 +51,8 @@ private:
     /// access the ntupleWriter service to write out to ROOT ntuples
     INTupleWriterSvc * m_rootTupleSvc;
 
+    ILivetimeSvc * m_LivetimeSvc;
+
     StringProperty m_treeName; ///< name of the tree to process
     StringProperty m_rootFile; ///< root file to sample events from
     int m_count;   ///< number of processed events
@@ -60,7 +63,7 @@ private:
     TLeaf * m_magLatLeaf;
 
 
-    static double s_triggerRate;
+    static double s_rate;
 
 
 };
