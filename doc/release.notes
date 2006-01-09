@@ -3,13 +3,13 @@
 
   package Interleave
   Package coordinators: T. Burnett
-$Id: release.notes,v 1.3 2006/01/06 00:22:16 burnett Exp $
+$Id: release.notes,v 1.4 2006/01/08 01:58:50 burnett Exp $
 
 @verbatim
 
-07-jan-05 v0r3  THB uses Trigger/LivetimeSvc to manage live, deadtime.
-05-jan-05 v0r2  THB getting closer, but still test mode
-18-dec-05 v0r1  THB Functional test program  
-14-Dec-05 v0    THB Initial check-in of development version 
+08-jan-05 v0r3p1 THB uses Trigger/LivetimeSvc to manage live, deadtime.
+05-jan-05 v0r2   THB getting closer, but still test mode
+18-dec-05 v0r1   THB Functional test program  
+14-Dec-05 v0     THB Initial check-in of development version 
 @endverbatim
 */
