@@ -1,7 +1,7 @@
 /**  @file BackgroundSelection.cxx
     @brief implementation of class BackgroundSelection
     
-  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.cxx,v 1.7 2006/01/06 00:20:06 burnett Exp $  
+  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.cxx,v 1.8 2006/01/10 00:41:31 dflath Exp $  
 */
 
 #include "BackgroundSelection.h"
@@ -55,7 +55,7 @@ BackgroundSelection::~BackgroundSelection()
 }
 
 //------------------------------------------------------------------------
-void BackgroundSelection::setLeafPointers(TTree* /*pTree*/)
+void BackgroundSelection::setLeafPointers(TTree* pTree)
 {
 
     // iteration over active leaves -- copied from Ttree::Show()
@@ -80,7 +80,7 @@ void BackgroundSelection::setLeafPointers(TTree* /*pTree*/)
 }
 
 //------------------------------------------------------------------------
-void BackgroundSelection::selectEvent(double /* maglat */)
+void BackgroundSelection::selectEvent(double maglat )
 {
     // TODO: have this depend on magnetic latitude
 

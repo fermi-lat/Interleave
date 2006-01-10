@@ -2,7 +2,7 @@
 
     @brief declaration of the BackGroundSelection class
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.h,v 1.4 2006/01/03 22:30:51 burnett Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.h,v 1.5 2006/01/10 00:41:31 dflath Exp $
 
 */
 
@@ -61,7 +61,7 @@ private:
     TFile* m_file;
     TTree* m_outputTree; ///< the tree to copy data to
     TTree* m_inputTrees[84];
-    Long64_t m_inputTreeIndexes[84];
+    int m_inputTreeIndexes[84];
 };
 
 
