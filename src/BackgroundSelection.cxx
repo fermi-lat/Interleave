@@ -1,7 +1,7 @@
 /**  @file BackgroundSelection.cxx
     @brief implementation of class BackgroundSelection
     
-  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.cxx,v 1.8 2006/01/10 00:41:31 dflath Exp $  
+  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.cxx,v 1.9 2006/01/10 03:22:56 burnett Exp $  
 */
 
 #include "BackgroundSelection.h"
@@ -112,5 +112,7 @@ double BackgroundSelection::downlinkRate(double/* maglat */)
 }
 void BackgroundSelection::disable(const char* pattern)
 {
-    m_tree->SetBranchStatus( pattern, 0);
+  for (int i=0; i<84; i++) {
+    m_inputTrees[i]->SetBranchStatus( pattern, 0);
+  }
 }
