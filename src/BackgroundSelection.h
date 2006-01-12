@@ -2,7 +2,7 @@
 
     @brief declaration of the BackGroundSelection class
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.h,v 1.6 2006/01/10 03:22:56 burnett Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.h,v 1.7 2006/01/12 01:10:21 burnett Exp $
 
 */
 
@@ -26,7 +26,7 @@ public:
         @param rootFileName name of root file (or files) to open
         @param treename name of the TTree containing the tuple data
     */
-    BackgroundSelection(const std::string& rootFileName,  TTree* other);
+    BackgroundSelection(const std::string& rootFileDirectory,  TTree* outputTree);
 
     ~BackgroundSelection();
 
@@ -57,10 +57,10 @@ private:
     void setLeafPointers(TTree* pTree);
 
     unsigned int m_event;
-    TFile* m_file;
     TTree* m_outputTree; ///< the tree to copy data to
-    TTree* m_inputTrees[84];
-    int m_inputTreeIndexes[84];
+    TFile* m_inputFiles[42];
+    TTree* m_inputTrees[42];
+    int m_inputTreeIndexes[42];
 };
 
 
