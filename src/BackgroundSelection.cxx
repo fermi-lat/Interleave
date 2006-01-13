@@ -1,7 +1,7 @@
 /**  @file BackgroundSelection.cxx
     @brief implementation of class BackgroundSelection
     
-  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.cxx,v 1.11 2006/01/12 01:10:21 burnett Exp $  
+  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.cxx,v 1.12 2006/01/12 23:07:08 dflath Exp $  
 */
 
 #include "BackgroundSelection.h"
@@ -12,7 +12,7 @@
 
 #include <stdexcept>
 #include <cassert>
-#include <math.h>
+#include <cmath>
 
 //------------------------------------------------------------------------
 BackgroundSelection::BackgroundSelection(const std::string& rootFileDirectory, 
@@ -87,7 +87,7 @@ void BackgroundSelection::selectEvent(double maglat )
 {
     // TODO: have this depend on magnetic latitude
 
-    int binIndex = (int)(floor(abs(maglat)));
+    int binIndex = (int)(floor(fabs(maglat)));
 
     TTree* pTree = m_inputTrees[binIndex];
     if (m_inputTreeIndexes[binIndex] >= pTree->GetEntries())
@@ -104,7 +104,7 @@ void BackgroundSelection::selectEvent(double maglat )
 double BackgroundSelection::triggerRate(double/* maglat */)
 {
     //TODO
-    return 2000.; // testing
+    return 1700.; // testing
 }
 
 //------------------------------------------------------------------------
