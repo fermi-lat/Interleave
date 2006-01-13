@@ -2,7 +2,7 @@
 
 @brief declaration and definition of the class InterleaveAlg
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/InterleaveAlg.cxx,v 1.12 2006/01/12 01:10:22 burnett Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/InterleaveAlg.cxx,v 1.13 2006/01/13 00:36:18 burnett Exp $
 
 */
 
@@ -113,13 +113,14 @@ StatusCode InterleaveAlg::initialize(){
     }
 
     // these will not be copied from the old tuple.
+    /*
     m_selector->disable("EvtRun");       
     m_selector->disable("EvtEventId");   
     m_selector->disable("EvtElapsedTime");
     m_selector->disable("EvtLiveTime");  
     m_selector->disable("Pt*");
     m_selector->disable("FT1*");
-
+    */
 
     // set initial default values for downlink rate to fold in
     s_rate = m_selector->downlinkRate(0.);
