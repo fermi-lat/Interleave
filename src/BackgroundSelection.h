@@ -2,7 +2,7 @@
 
     @brief declaration of the BackGroundSelection class
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.h,v 1.7 2006/01/12 01:10:21 burnett Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.h,v 1.8 2006/01/12 23:07:08 dflath Exp $
 
 */
 
@@ -39,11 +39,11 @@ public:
  
     /**@brief the trigger rate for the given magnetic latitude
     */
-    double triggerRate(double maglat);
+    static double triggerRate(double maglat);
 
     /**@brief the downlink rate for the given magnetic latitude
     */
-    double downlinkRate(double maglat);
+    static double downlinkRate(double maglat);
 
     /** @brief disable leaves matching the pattern
 

@@ -1,7 +1,7 @@
 /**  @file BackgroundSelection.cxx
     @brief implementation of class BackgroundSelection
     
-  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.cxx,v 1.12 2006/01/12 23:07:08 dflath Exp $  
+  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.cxx,v 1.13 2006/01/13 00:36:18 burnett Exp $  
 */
 
 #include "BackgroundSelection.h"
@@ -101,18 +101,28 @@ void BackgroundSelection::selectEvent(double maglat )
 }
 
 //------------------------------------------------------------------------
-double BackgroundSelection::triggerRate(double/* maglat */)
+double BackgroundSelection::triggerRate(double maglat)
 {
-    //TODO
-    return 1700.; // testing
+    //y = 0.0481x3 - 0.9295x2 - 27.72x + 2082.2
+    static double c[]={2082.2, -27.72, -0.9295, 0.0481};
+
+    double x = fabs(maglat);
+    if( x< 8) x=8;
+    return  ((c[3]*x + c[2])*x +c[1])*x + c[0];
 }
 
 //------------------------------------------------------------------------
-double BackgroundSelection::downlinkRate(double/* maglat */)
+double BackgroundSelection::downlinkRate(double  maglat )
 {
-    //TODO
-    return 300.; //testing
+    //y = 0.0094x3 - 0.1951x2 - 5.4218x + 508.48
+    static double c[]={508.48, -5.4218, -0.1951, 0.0094};
+
+    double x = fabs(maglat);
+    if( x< 8) x=8;
+    return ((c[3]*x + c[2])*x +c[1])*x + c[0];
+
 }
+//------------------------------------------------------------------------
 void BackgroundSelection::disable(const char* pattern)
 {
   for (int i=0; i<42; i++) {
