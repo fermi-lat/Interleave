@@ -2,7 +2,7 @@
 
 @brief declaration and definition of the class InterleaveAlg
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/InterleaveAlg.cxx,v 1.14 2006/01/13 19:50:30 dflath Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/InterleaveAlg.cxx,v 1.15 2006/01/13 22:13:43 burnett Exp $
 
 */
 
@@ -121,6 +121,10 @@ StatusCode InterleaveAlg::initialize(){
     m_selector->disable("EvtLiveTime");  
     m_selector->disable("Pt*");
     m_selector->disable("FT1*");
+    m_selector->disable("CT*");
+
+    // now modify all leaves to point to our tuple
+    m_selector->setLeafPointers();
 
     // set initial default values for downlink rate to fold in
     s_rate = m_selector->downlinkRate(0.);
