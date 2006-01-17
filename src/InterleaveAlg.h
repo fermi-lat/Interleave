@@ -2,7 +2,7 @@
 
 @brief declaration  of the class InterleaveAlg
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/InterleaveAlg.h,v 1.4 2005/12/18 03:17:37 burnett Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/InterleaveAlg.h,v 1.5 2006/01/08 01:57:07 burnett Exp $
 
 */
 #ifndef InterleaveAlg_h
@@ -42,7 +42,7 @@ public:
 
     
 private: 
-    void copyEventInfo(TTree* t);
+    void copyEventInfo(); ///< set up 
 
     double magneticLatitude();
 
@@ -55,6 +55,7 @@ private:
 
     StringProperty m_treeName; ///< name of the tree to process
     StringProperty m_rootFile; ///< root file to sample events from
+    StringArrayProperty m_disableList;
     int m_count;   ///< number of processed events
     int m_downlink;
 
