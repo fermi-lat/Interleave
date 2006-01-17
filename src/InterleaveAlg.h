@@ -2,7 +2,7 @@
 
 @brief declaration  of the class InterleaveAlg
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/InterleaveAlg.h,v 1.5 2006/01/08 01:57:07 burnett Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/InterleaveAlg.h,v 1.6 2006/01/17 16:44:57 burnett Exp $
 
 */
 #ifndef InterleaveAlg_h
@@ -62,6 +62,8 @@ private:
     TTree * m_meritTuple;
 
     TLeaf * m_magLatLeaf;
+    TLeaf * m_runLeaf;
+    TLeaf * m_eventLeaf;
 
 
     static double s_rate;

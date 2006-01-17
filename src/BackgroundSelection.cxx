@@ -1,7 +1,7 @@
 /**  @file BackgroundSelection.cxx
     @brief implementation of class BackgroundSelection
     
-  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.cxx,v 1.16 2006/01/17 16:44:57 burnett Exp $  
+  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.cxx,v 1.17 2006/01/17 23:08:17 dflath Exp $  
 */
 
 #include "BackgroundSelection.h"
@@ -157,7 +157,7 @@ void BackgroundSelection::setCurrentTree(double maglat)
       }
 
       // start at a random location in the tree:
-      m_eventOffset = (unsigned int)(RandFlat::shoot()*(m_inputTree->GetEntries() - 1))
+      m_eventOffset = (unsigned int)(RandFlat::shoot()*(m_inputTree->GetEntries() - 1));
 
       // point tree to buffer for copying events:
       setLeafPointers(m_inputTree);
