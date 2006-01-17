@@ -2,7 +2,7 @@
 
     @brief declaration of the BackGroundSelection class
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.h,v 1.10 2006/01/16 00:04:34 burnett Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.h,v 1.11 2006/01/17 16:44:57 burnett Exp $
 
 */
 
@@ -59,12 +59,17 @@ private:
     void setLeafPointers();
     void setLeafPointers(TTree*);
 
-    unsigned int m_event;
-    TTree* m_outputTree; ///< the tree to copy data to
-    TFile* m_inputFiles[42];
-    TTree* m_inputTrees[42];
-    int m_inputTreeIndexes[42];
+    /**@brief Retrieve the correct tree for current geomagnetic latitude so copyEvent comes from correct sample bin
+    */
+    void setCurrentTree(double maglat);
+
+    unsigned int m_event, m_treeInitialized, m_eventOffset;
+    double m_currentBinLower;
+    TTree* m_outputTree, ///< the tree to copy data to
+      *m_inputTree; ///< the tree to copy data from
+    TFile* m_inputFile; ///< the file that contains the input tree
     std::vector<std::string>m_disableList; ///< list of strings for disable
+    std::string m_rootFileDirectory;
 };
 
 
