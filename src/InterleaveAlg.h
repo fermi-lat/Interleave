@@ -2,7 +2,7 @@
 
 @brief declaration  of the class InterleaveAlg
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/InterleaveAlg.h,v 1.6 2006/01/17 16:44:57 burnett Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/InterleaveAlg.h,v 1.7 2006/01/17 23:39:03 burnett Exp $
 
 */
 #ifndef InterleaveAlg_h
@@ -54,11 +54,14 @@ private:
     ILivetimeSvc * m_LivetimeSvc;
 
     StringProperty m_treeName; ///< name of the tree to process
-    StringProperty m_rootFile; ///< root file to sample events from
+    StringProperty m_rootFile; ///< root file or path to sample events from
     StringArrayProperty m_disableList;
+    StringProperty m_mapName;  ///< name of the map tree
     int m_count;   ///< number of processed events
     int m_downlink;
 
+    int m_run, m_event;   ///< current
+    int m_irun, m_ievent; ///< interleaved run, event
     TTree * m_meritTuple;
 
     TLeaf * m_magLatLeaf;
