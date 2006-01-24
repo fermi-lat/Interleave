@@ -2,7 +2,7 @@
 
     @brief declaration of the BackGroundSelection class
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.h,v 1.11 2006/01/17 16:44:57 burnett Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.h,v 1.12 2006/01/17 23:08:17 dflath Exp $
 
 */
 
@@ -70,6 +70,8 @@ private:
     TFile* m_inputFile; ///< the file that contains the input tree
     std::vector<std::string>m_disableList; ///< list of strings for disable
     std::string m_rootFileDirectory;
+
+    double zenithTheta(); ///< value of FT1ZenithTheta for current event
 };
 
 

@@ -1,7 +1,7 @@
 /**  @file BackgroundSelection.cxx
     @brief implementation of class BackgroundSelection
     
-  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.cxx,v 1.18 2006/01/17 23:39:03 burnett Exp $  
+  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.cxx,v 1.19 2006/01/18 16:37:27 burnett Exp $  
 */
 
 #include "BackgroundSelection.h"
@@ -74,12 +74,22 @@ void BackgroundSelection::selectEvent(double maglat)
     // make sure we have the right tree selected for new maglat
     setCurrentTree(maglat);    
 
-    // check event offset for overflow:
-    if (m_eventOffset >= m_inputTree->GetEntries())
-      m_eventOffset = 0;
+    do {
 
-    // grab the event:
-    m_inputTree->GetEvent(m_eventOffset++);
+        // check event offset for overflow:
+        if (m_eventOffset >= m_inputTree->GetEntries())
+            m_eventOffset = 0;
+
+        // grab the event:
+        m_inputTree->GetEvent(m_eventOffset++);
+        
+    }while( zenithTheta()>100.);
+}
+//------------------------------------------------------------------------
+double BackgroundSelection::zenithTheta()
+{
+    double x= m_inputTree->GetLeaf("FT1ZenithTheta")->GetValue();
+    return x;
 }
 
 //------------------------------------------------------------------------
@@ -114,6 +124,8 @@ void BackgroundSelection::disableBranches(TTree* t) //const char* pattern)
         t->SetBranchStatus((*it).c_str(), false);
     }
 
+    // restore this, if needed, for cuts
+    t->SetBranchStatus("FT1ZenithTheta", 1);
 }
 //------------------------------------------------------------------------
 void BackgroundSelection::setCurrentTree(double maglat) 
