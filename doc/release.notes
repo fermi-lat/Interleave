@@ -3,10 +3,11 @@
 
   package Interleave
   Package coordinators: T. Burnett
-$Id: release.notes,v 1.7 2006/01/18 16:39:19 burnett Exp $
+$Id: release.notes,v 1.8 2006/01/18 23:31:25 burnett Exp $
 
 @verbatim
 
+24-jan-06 v0r7   THB kluge a small feature: do not accept background with limb events
 18-jan-06 v0r6   THB final version of background interleave
 12-jan-06 v0r4   THB almost final version of the background interleave
 08-jan-05 v0r3p1 THB uses Trigger/LivetimeSvc to manage live, deadtime.
