@@ -1,7 +1,7 @@
 /**  @file BackgroundSelection.cxx
     @brief implementation of class BackgroundSelection
     
-  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.cxx,v 1.19 2006/01/18 16:37:27 burnett Exp $  
+  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.cxx,v 1.20 2006/01/24 05:03:24 burnett Exp $  
 */
 
 #include "BackgroundSelection.h"
@@ -35,9 +35,6 @@ BackgroundSelection::BackgroundSelection(const std::string& rootFileDirectory,
 //------------------------------------------------------------------------
 BackgroundSelection::~BackgroundSelection()
 {
-  // Delete the file object if it's been initialized:
-  if (m_treeInitialized && m_inputTree)
-    delete m_inputTree;
 }
 
 //------------------------------------------------------------------------
@@ -71,6 +68,10 @@ void BackgroundSelection::setLeafPointers(TTree* pTree)
 //------------------------------------------------------------------------
 void BackgroundSelection::selectEvent(double maglat)
 {
+
+    // this is necessary due to the poor design of ROOT :-(
+    TDirectory *saveDir = gDirectory;
+ 
     // make sure we have the right tree selected for new maglat
     setCurrentTree(maglat);    
 
@@ -84,6 +85,9 @@ void BackgroundSelection::selectEvent(double maglat)
         m_inputTree->GetEvent(m_eventOffset++);
         
     }while( zenithTheta()>100.);
+
+    // this is necessary due to the poor design of ROOT :-(
+    saveDir->cd();
 }
 //------------------------------------------------------------------------
 double BackgroundSelection::zenithTheta()
