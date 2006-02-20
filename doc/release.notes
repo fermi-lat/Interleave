@@ -3,10 +3,11 @@
 
   package Interleave
   Package coordinators: T. Burnett
-$Id: release.notes,v 1.9 2006/01/24 15:52:44 burnett Exp $
+$Id: release.notes,v 1.10 2006/02/09 05:57:18 burnett Exp $
 
 @verbatim
 
+19-feb-06 v0r8p1 THB Extensive modification of test program required by change to implementation
 08-feb-06 v0r8   THB fixes to two ROOT pitfalls
 24-jan-06 v0r7   THB kluge a small feature: do not accept background with limb events
 18-jan-06 v0r6   THB final version of background interleave

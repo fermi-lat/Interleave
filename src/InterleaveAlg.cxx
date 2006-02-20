@@ -2,7 +2,7 @@
 
 @brief declaration and definition of the class InterleaveAlg
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/InterleaveAlg.cxx,v 1.19 2006/01/17 23:39:03 burnett Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/InterleaveAlg.cxx,v 1.20 2006/01/18 23:30:14 burnett Exp $
 
 */
 
@@ -258,6 +258,7 @@ void InterleaveAlg::copyEventInfo()
     setLeafValue(liveLeaf,      EvtLiveTime);
 
     //  make the source id negative; make zero -1 by offset. (2's complement)
+    if( sourceLeaf==0 ) return; // testing mode
     float & sourceid = *static_cast<float*>(sourceLeaf->GetValuePointer());
     sourceid=-1-sourceid;
 
