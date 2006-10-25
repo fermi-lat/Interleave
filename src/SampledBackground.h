@@ -1,6 +1,6 @@
 /** @file SampledBackground.h
     @brief declaration of SampledBackground class
-$Header$
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/SampledBackground.h,v 1.2 2006/01/08 01:56:07 burnett Exp $
 
 */
 #ifndef interleave_PseudoBackground_h
@@ -32,13 +32,14 @@ public:
     virtual const char* particleName() const{ return "p"; }
 
     /// Gives back the component name
-    virtual std::string title() const{ return "SampledBackground"; }
+    virtual std::string title() const{ return "SampledBackground for "+m_tupleVar; }
 
     /// Gives back solid angle from which particles come
     virtual double solidAngle() const;
 
 
 private:
+    std::string m_tupleVar; ///< Name of the ntuple variable used for the selection
 };
 
 #endif
