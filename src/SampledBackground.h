@@ -1,6 +1,7 @@
 /** @file SampledBackground.h
     @brief declaration of SampledBackground class
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/SampledBackground.h,v 1.2 2006/01/08 01:56:07 burnett Exp $
+
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/SampledBackground.h,v 1.3 2006/10/25 17:14:30 burnett Exp $
 
 */
 #ifndef interleave_PseudoBackground_h

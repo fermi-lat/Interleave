@@ -1,7 +1,7 @@
 /**  @file BackgroundSelection.cxx
     @brief implementation of class BackgroundSelection
     
-  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.cxx,v 1.22 2006/02/20 00:48:19 burnett Exp $  
+  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.cxx,v 1.23 2006/10/25 17:14:30 burnett Exp $  
 */
 
 #include "BackgroundSelection.h"
@@ -48,7 +48,7 @@ BackgroundSelection::~BackgroundSelection()
 }
 
 //------------------------------------------------------------------------
-double BackgroundSelection::value()
+double BackgroundSelection::value()const
 {
     return m_varleaf->GetValue();
 }
@@ -73,7 +73,7 @@ void BackgroundSelection::selectEvent()
 }
 
 //------------------------------------------------------------------------
-double BackgroundSelection::triggerRate()
+double BackgroundSelection::triggerRate()const
 {
     double x(value());
 
@@ -82,7 +82,7 @@ double BackgroundSelection::triggerRate()
 }
 
 //------------------------------------------------------------------------
-double BackgroundSelection::downlinkRate( )
+double BackgroundSelection::downlinkRate( )const
 {
     double  x(value());
 
