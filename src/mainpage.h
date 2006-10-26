@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/mainpage.h,v 1.3 2005/12/18 03:17:37 burnett Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/mainpage.h,v 1.4 2006/10/26 14:34:42 burnett Exp $
 // Mainpage for doxygen
 
 /*! \mainpage package Interleave
@@ -29,6 +29,12 @@ Trigger.BranchMembers = {"TriggerAlg", "TestAlg", "InterleaveAlg"};
 
 @param RootFile     set root file name to pass to the backgroundSelection object  
 @param TreeName     ["MeritTuple"] name of tree
+@param DisableList List of branches to disable from being copied. Default, which can be
+appended to or replaced, is {"EvtElapsedTime","EvtLiveTime","Pt*","FT1*","CT*"}. These are the 
+quantities that will *not* be copied from the background tuple, and must be set according to the
+current run.
+@param MapName     ["interleave_map"] If set, a ROOT TTree with this name will be added to the
+output file, with a correspondence of run/event numbers from the sampled file to the output
 
   <hr>
   \section notes release notes
