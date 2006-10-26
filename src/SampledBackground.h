@@ -1,7 +1,7 @@
 /** @file SampledBackground.h
     @brief declaration of SampledBackground class
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/SampledBackground.h,v 1.3 2006/10/25 17:14:30 burnett Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/SampledBackground.h,v 1.4 2006/10/26 02:56:16 burnett Exp $
 
 */
 #ifndef interleave_PseudoBackground_h
@@ -12,10 +12,18 @@ $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/SampledBackground.h,v 1.3 2
 /** @class SampledBackground
     @brief  a Spectrum class that is used to implement the background sampling
 
+    It must be created with a tuple variable in the params variable. This is passed to a 
+    InterleaveAlg static list. When InterleaveAlg is later instantiated, it examines these and creates
+    corresponding BackgroundSelection objects to then look up appropriate rates, and respond to the
+    system selecting this source.
 
 */
 class SampledBackground: public Spectrum {
 public:
+
+    /** @brief ctor
+    @param params expect the name of a tuple variable
+    */
     SampledBackground(const std::string& params);
 
     virtual ~SampledBackground(){};

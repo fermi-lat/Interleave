@@ -1,8 +1,8 @@
 /** @file BackgroundSelection.h
 
-    @brief declaration of the BackGroundSelection class
+    @brief declaration of the BackgroundSelection class
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.h,v 1.14 2006/10/25 17:14:30 burnett Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.h,v 1.15 2006/10/26 02:56:16 burnett Exp $
 
 */
 

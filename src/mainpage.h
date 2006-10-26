@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/mainpage.h,v 1.2 2005/12/17 22:49:28 burnett Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/mainpage.h,v 1.3 2005/12/18 03:17:37 burnett Exp $
 // Mainpage for doxygen
 
 /*! \mainpage package Interleave
@@ -11,6 +11,19 @@
   - InterleaveAlg   Gaudi algorithm that manages the insertion
   - SampledBackground Spectrum to insert flag particles at the trigger rate
   - BackgroundSelection Manage selection of background events from external database
+
+  It is expected to be invoked by a branch from the Trigger Sequencer, as in the following job options invoked by the test program, see test.cxx
+
+
+  @verbatim
+  //the top sequence loop
+Top.Members={"Sequencer/Generator"};
+
+Generator.Members     = {"FluxAlg", "PointInfoAlg", "Sequencer/Trigger"};
+
+Trigger.Members       = {"TriggerAlg"};
+Trigger.BranchMembers = {"TriggerAlg", "TestAlg", "InterleaveAlg"};
+ @endverbatim
 
   @section job JobOptions
 
