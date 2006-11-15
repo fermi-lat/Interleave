@@ -2,7 +2,7 @@
 
     @brief declaration of the IFetchEvents class
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/IFetchEvents.h,v 1.16 2006/10/26 14:34:42 burnett Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/IFetchEvents.h,v 1.1 2006/11/15 07:19:56 heather Exp $
 
 */
 
@@ -24,8 +24,8 @@ class IFetchEvents
 public:
 
     /** @brief ctor
-        @param param parameter used for retrieving data from xmlFile
-        @param xmlFile name of the file containing the event store
+        @param param parameter used for retrieving data from dataStore
+        @param dataStore name of the file containing the event store
     */
     IFetchEvents(const std::string& dataStore, const std::string& param) : m_dataStore(dataStore), m_param(param) {};
 
@@ -34,12 +34,16 @@ public:
     /// Returns the value of the requested elemName, based on the bin associated with binVal
     virtual double getAttributeValue(const std::string& elemName, double binVal) = 0;
 
+    /// Returns a TChain* constructed from the fileList stored in the m_dataStore
     virtual int getFiles(double binVal, TChain* chain) = 0;
 
 private:
     friend class XmlFetchEvents;
+
+    /// path or file name associated with the dataStore which contains the information we wish to extract
     std::string m_dataStore; 
-    std::string m_param; /// name of the variable that we use to key the rates
+    /// name of the variable that we will use to search the dataStore
+    std::string m_param;
 
 };
 

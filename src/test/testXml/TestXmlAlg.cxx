@@ -1,7 +1,7 @@
 /** @file TestXmlAlg.cxx
     @brief Used for test program
 
- $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/test/TestAlg.cxx,v 1.5 2006/10/25 20:57:08 burnett Exp $
+ $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/test/testXml/TestXmlAlg.cxx,v 1.1 2006/11/15 07:19:40 heather Exp $
 
 */
 
@@ -82,8 +82,14 @@ StatusCode TestXmlAlg::execute() {
 
     double triggerRate = m_fetch->getAttributeValue("triggerRate", 5.0);
     double downlinkRate = m_fetch->getAttributeValue("downlinkRate",5.0);
+    if ( (triggerRate == m_fetch->m_badVal) || (downlinkRate == m_fetch->m_badVal) )
+        log << MSG::WARNING << "Failed to retrieve triggerRate or downlinkRate" << endreq;
     TChain *ch = new TChain();  // not specifying a TTree name, as our input tree names will come from XML
     int status = m_fetch->getFiles(5.0, ch);
+    if (status == 1)
+        log << MSG::WARNING << "At least one file failed to be added to the TChain" << endreq;
+    else if (status == -1)
+        log << MSG::WARNING << "No files were found" << endreq;
     
     return sc;
 }
