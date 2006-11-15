@@ -2,7 +2,7 @@
 
     @brief declaration of the BackgroundSelection class
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.h,v 1.15 2006/10/26 02:56:16 burnett Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.h,v 1.16 2006/10/26 14:34:42 burnett Exp $
 
 */
 
@@ -12,8 +12,10 @@ $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.h,v 1.1
 
 #include <string>
 #include <vector>
+#include "IFetchEvents.h"
 class TTree;
 class TFile;
+class TChain;
 class TLeaf;
 
 /** @class BackgroundSelection
@@ -61,11 +63,11 @@ public:
 private:
     /** @brief disable branches in the tree, from the disableList
     */
-    void disableBranches(TTree*);
+    void disableBranches(TChain*);
 
     /**@brief Set the addresses of active leaves, so that a GetEvent will perform a copy
     */
-    void setLeafPointers(TTree*);
+    void setLeafPointers(TChain*);
 
     /**@brief Retrieve the correct tree for current geomagnetic latitude so copyEvent comes from correct sample bin
     */
@@ -78,13 +80,14 @@ private:
 
     bool m_singleFileMode; 
     
-    TTree* m_outputTree, ///< the tree to copy data to
-      *m_inputTree; ///< the tree to copy data from
+    TTree* m_outputTree; ///< the tree to copy data to
+    TChain* m_inputTree; ///< the tree to copy data from
     
     TFile* m_inputFile; ///< the file that contains the input tree
     std::vector<std::string>m_disableList; ///< list of strings for disable
     std::string m_rootFileDirectory;  ///< either path to a ROOT file to sample from, or a directory containing files
 
+    IFetchEvents *m_fetch;
 };
 
 
