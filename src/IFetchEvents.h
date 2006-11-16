@@ -2,7 +2,7 @@
 
     @brief declaration of the IFetchEvents class
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/IFetchEvents.h,v 1.1 2006/11/15 07:19:56 heather Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/IFetchEvents.h,v 1.2 2006/11/15 16:02:06 heather Exp $
 
 */
 
@@ -10,7 +10,7 @@ $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/IFetchEvents.h,v 1.1 2006/1
 #define IFetchEvents_h
 
 #include <string>
-#include "TChain.h"
+class TChain;
 
 
 /** @class IFetchEvents
