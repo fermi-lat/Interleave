@@ -1,7 +1,7 @@
 /**  @file BackgroundSelection.cxx
     @brief implementation of class BackgroundSelection
     
-  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.cxx,v 1.25 2006/11/15 07:19:56 heather Exp $  
+  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.cxx,v 1.26 2006/11/16 19:13:52 burnett Exp $  
 */
 
 #include "BackgroundSelection.h"
@@ -138,13 +138,11 @@ void BackgroundSelection::setCurrentTree()
 
         double x(value());
 
-        ///@todo: set up lookup table for rates, files to sample from, based on currrent value
-        // set file_name to be opened (and maybe close previous one?)
-        m_inputTree = new TChain(); // leave tree name unspecified, as XML file will contain the tree names
         if (m_fetch){ 
-            int stat= m_fetch->getFiles(x, m_inputTree);
+            TChain* chain = new TChain();
+            int stat= m_fetch->getFiles(x, chain);
             if( stat!=0 ) throw std::runtime_error("BackgaroundSelection::setCurrentTree: invalid tree");
-
+            m_inputTree = chain;
         }
     }else{
         throw std::runtime_error("BackgaroundSelection::setCurrentTree: no valid file");
@@ -177,15 +175,19 @@ void BackgroundSelection::setCurrentTree()
 //------------------------------------------------------------------------
 void BackgroundSelection::setLeafPointers(TTree* pTree)
 {
+//    TChain* pTree = dynamic_cast<TChain*>(xTree);
 
     // first disable the branches
     disableBranches(pTree);
 
     // iteration over active leaves -- copied from Ttree::Show()
 
+
     TObjArray *leaves  = pTree->GetListOfLeaves();
-    if( leaves==0 ) throw std::runtime_error("BackgroundSelection::setLeafPointers: invalid tree, not leaves found");
-    Int_t nleaves = leaves->GetEntriesFast();
+    if( leaves==0 ) throw std::runtime_error("BackgroundSelection::setLeafPointers: invalid tree, no leaves found");
+
+    Int_t nleaves = leaves->GetEntries();
+    if (nleaves==0) throw std::runtime_error("BackgroundSelection::setLeafPointers: invalid tree, no leaves found");
     for (Int_t i=0;i<nleaves;i++) {
         TLeaf *leaf = (TLeaf*)leaves->UncheckedAt(i);
         TBranch *branch = leaf->GetBranch();

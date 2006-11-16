@@ -1,7 +1,7 @@
 /**  @file XmlFetchEvents.cxx
 @brief implementation of class XmlFetchEvents
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/XmlFetchEvents.cxx,v 1.3 2006/11/16 15:23:20 heather Exp $  
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/XmlFetchEvents.cxx,v 1.4 2006/11/16 19:13:52 burnett Exp $  
 */
 
 #include "XmlFetchEvents.h"
@@ -109,7 +109,7 @@ double XmlFetchEvents::getAttributeValue(const std::string& elemName, double bin
 }
 
 
-int XmlFetchEvents::getFiles(double binVal, TTree* chain) {
+int XmlFetchEvents::getFiles(double binVal, TChain* chain) {
     /// Purpose and Method:  Returns a TChain constructed from the "fileList" associated with the bin
     /// found using binVal.
     /// Returns 0 if completely successful

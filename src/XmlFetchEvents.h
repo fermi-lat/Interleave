@@ -2,7 +2,7 @@
 
     @brief declaration of the FetchEvents class
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/XmlFetchEvents.h,v 1.2 2006/11/15 16:02:06 heather Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/XmlFetchEvents.h,v 1.3 2006/11/16 19:13:52 burnett Exp $
 
 */
 
@@ -16,6 +16,7 @@ $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/XmlFetchEvents.h,v 1.2 2006
 #include <xercesc/dom/DOMElement.hpp>
 
 #include "xmlBase/XmlParser.h"
+class TChain;
 
 
 /** @class XmlFetchEvents
@@ -34,7 +35,7 @@ public:
 
     double getAttributeValue(const std::string& elemName, double binVal);
 
-    int getFiles(double binVal, TTree* chain);
+    int getFiles(double binVal, TChain* chain);
 
     static double m_badVal;
 
