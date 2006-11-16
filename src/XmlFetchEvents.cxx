@@ -1,7 +1,7 @@
 /**  @file XmlFetchEvents.cxx
 @brief implementation of class XmlFetchEvents
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/XmlFetchEvents.cxx,v 1.2 2006/11/15 16:02:06 heather Exp $  
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/XmlFetchEvents.cxx,v 1.3 2006/11/16 15:23:20 heather Exp $  
 */
 
 #include "XmlFetchEvents.h"
@@ -11,6 +11,8 @@ $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/XmlFetchEvents.cxx,v 1.2 20
 #include "TChain.h"
 
 
+
+#include "TChain.h"
 
 using XERCES_CPP_NAMESPACE_QUALIFIER DOMDocument;
 using XERCES_CPP_NAMESPACE_QUALIFIER DOMElement;
@@ -107,7 +109,7 @@ double XmlFetchEvents::getAttributeValue(const std::string& elemName, double bin
 }
 
 
-int XmlFetchEvents::getFiles(double binVal, TChain* chain) {
+int XmlFetchEvents::getFiles(double binVal, TTree* chain) {
     /// Purpose and Method:  Returns a TChain constructed from the "fileList" associated with the bin
     /// found using binVal.
     /// Returns 0 if completely successful
@@ -151,7 +153,7 @@ int XmlFetchEvents::getFiles(double binVal, TChain* chain) {
             facilities::Util::expandEnvVar(&fileNameStr);
             std::string treeNameStr = xmlBase::Dom::getAttribute(*fileIt, "treeName");
             // Returns 1 if success and 0 if there is a problem adding the file
-            int status = chain->AddFile(fileNameStr.c_str(),0,treeNameStr.c_str());
+            int status = (dynamic_cast<TChain*>(chain))->AddFile(fileNameStr.c_str(),0,treeNameStr.c_str());
             if (status == 0) statFlag |= 1;
         }
     } else

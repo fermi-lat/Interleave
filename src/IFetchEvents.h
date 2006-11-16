@@ -2,7 +2,7 @@
 
     @brief declaration of the IFetchEvents class
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/IFetchEvents.h,v 1.2 2006/11/15 16:02:06 heather Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/IFetchEvents.h,v 1.3 2006/11/16 15:23:20 heather Exp $
 
 */
 
@@ -10,7 +10,7 @@ $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/IFetchEvents.h,v 1.2 2006/1
 #define IFetchEvents_h
 
 #include <string>
-class TChain;
+class TTree;
 
 
 /** @class IFetchEvents
@@ -35,7 +35,7 @@ public:
     virtual double getAttributeValue(const std::string& elemName, double binVal) = 0;
 
     /// Returns a TChain* constructed from the fileList stored in the m_dataStore
-    virtual int getFiles(double binVal, TChain* chain) = 0;
+    virtual int getFiles(double binVal, TTree* chain) = 0;
 
 private:
     friend class XmlFetchEvents;
