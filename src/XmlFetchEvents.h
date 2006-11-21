@@ -2,7 +2,7 @@
 
     @brief declaration of the FetchEvents class
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/XmlFetchEvents.h,v 1.3 2006/11/16 19:13:52 burnett Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/XmlFetchEvents.h,v 1.4 2006/11/16 22:50:08 burnett Exp $
 
 */
 
@@ -17,6 +17,7 @@ $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/XmlFetchEvents.h,v 1.3 2006
 
 #include "xmlBase/XmlParser.h"
 class TChain;
+class TTree;
 
 
 /** @class XmlFetchEvents
@@ -36,6 +37,12 @@ public:
     double getAttributeValue(const std::string& elemName, double binVal);
 
     int getFiles(double binVal, TChain* chain);
+
+    /// Purpose and Method:  Returns a TTree constructed from the "fileList" associated with the bin
+    /// found using binVal.
+    /// Returns a pointer to the TTree  if completely successful
+    /// returns 0 if failure (or throws exception.
+    TTree* getTree(double binVal);
 
     static double m_badVal;
 

@@ -2,7 +2,7 @@
 
     @brief declaration of the BackgroundSelection class
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.h,v 1.17 2006/11/15 07:19:56 heather Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.h,v 1.18 2006/11/16 19:13:52 burnett Exp $
 
 */
 
@@ -89,6 +89,7 @@ private:
     std::string m_rootFileDirectory;  ///< either path to a ROOT file to sample from, or a directory containing files
 
     IFetchEvents *m_fetch;
+    bool m_useChain; ///< flag that we are expecting to find lists of files to combine into TChain objects
 };
 
 
