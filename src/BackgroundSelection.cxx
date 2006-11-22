@@ -1,7 +1,7 @@
 /**  @file BackgroundSelection.cxx
     @brief implementation of class BackgroundSelection
     
-  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.cxx,v 1.28 2006/11/21 19:26:03 burnett Exp $  
+  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.cxx,v 1.29 2006/11/22 18:53:28 burnett Exp $  
 */
 
 #include "BackgroundSelection.h"
@@ -117,6 +117,7 @@ void BackgroundSelection::disableBranches(TTree* t)
 void BackgroundSelection::setCurrentTree() 
 {
     double x(value());
+    TTree * nextTree(0);
 
     if( m_useChain ){
         TChain* chain = new TChain();
@@ -124,9 +125,13 @@ void BackgroundSelection::setCurrentTree()
         if( stat!=0 ) throw std::runtime_error("BackgaroundSelection::setCurrentTree: invalid tree");
         m_inputTree = chain;
     }else {
-        m_inputTree = m_fetch->getTree(x);
-        if( m_inputTree==0 ) throw std::runtime_error("BackgaroundSelection::setCurrentTree: invalid tree");
+        nextTree = m_fetch->getTree(x);
     }
+
+    if( nextTree==0) return; // still using the same treee
+
+    // a new tree: must set it up for sequential access from random point
+    m_inputTree = nextTree;
 
     // start at a random location in the tree:
     double length (m_inputTree->GetEntries());
