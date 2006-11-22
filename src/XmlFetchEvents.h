@@ -2,7 +2,7 @@
 
     @brief declaration of the FetchEvents class
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/XmlFetchEvents.h,v 1.5 2006/11/21 19:26:03 burnett Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/XmlFetchEvents.h,v 1.6 2006/11/22 03:31:59 burnett Exp $
 
 */
 
@@ -18,6 +18,7 @@ $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/XmlFetchEvents.h,v 1.5 2006
 #include "xmlBase/XmlParser.h"
 class TChain;
 class TTree;
+class TFile;
 
 
 /** @class XmlFetchEvents
@@ -64,6 +65,7 @@ private:
     int m_lastBinIndex;
     double m_lastBinMin, m_lastBinMax;
 
+    TFile * m_file; ///< current TFile
 };
 
 

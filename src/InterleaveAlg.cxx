@@ -2,7 +2,7 @@
 
 @brief declaration and definition of the class InterleaveAlg
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/InterleaveAlg.cxx,v 1.24 2006/11/16 19:13:52 burnett Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/InterleaveAlg.cxx,v 1.25 2006/11/16 22:50:08 burnett Exp $
 
 */
 
@@ -220,9 +220,9 @@ StatusCode InterleaveAlg::execute()
 
     const Event::McParticle& primary = **particles->begin();
     double ke = primary.initialFourMomentum().e()-primary.initialFourMomentum().m();
-    log << MSG::DEBUG << "Primary particle energy: " << ke << endreq;
 
     if( ke>1. ){
+        // not an interleave particle
         setFilterPassed(false); // since this is on a branch, and we want the sequence to fail
         return sc; // not a flagged sampled_background 
     }
@@ -231,7 +231,11 @@ StatusCode InterleaveAlg::execute()
 
     // let the livetime service know about the current trigger rate,
     // and set the current accumulated live time in the header
-    m_LivetimeSvc->setTriggerRate( triggerRate() );
+    log << MSG::DEBUG 
+        << "Event type " << m_selector->name()
+        << " value "     << m_selector->value()
+        << ", trigger, downlink rates: " << triggerRate()<<", " << downlinkRate() << endreq;
+    m_LivetimeSvc->setTriggerRate(triggerRate());
     SmartDataPtr<Event::EventHeader>   header(eventSvc(),    EventModel::EventHeader);
     header->setLivetime( m_LivetimeSvc->livetime());
 
