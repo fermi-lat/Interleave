@@ -1,16 +1,18 @@
 /**  @file XmlFetchEvents.cxx
 @brief implementation of class XmlFetchEvents
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/XmlFetchEvents.cxx,v 1.5 2006/11/16 22:50:08 burnett Exp $  
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/XmlFetchEvents.cxx,v 1.6 2006/11/21 19:26:03 burnett Exp $  
 */
 
 #include "XmlFetchEvents.h"
 #include "xmlBase/Dom.h"
 #include "facilities/Util.h"
 #include <xercesc/dom/DOMNodeList.hpp>
+
 #include "TChain.h"
 #include "TFile.h"
 
+#include <stdexcept>
 
 
 using XERCES_CPP_NAMESPACE_QUALIFIER DOMDocument;

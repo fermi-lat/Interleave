@@ -2,7 +2,7 @@
 
     @brief declaration of the FetchEvents class
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/XmlFetchEvents.h,v 1.4 2006/11/16 22:50:08 burnett Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/XmlFetchEvents.h,v 1.5 2006/11/21 19:26:03 burnett Exp $
 
 */
 
@@ -32,7 +32,7 @@ public:
 
     XmlFetchEvents(const std::string& xmlFile, const std::string& param);
 
-    ~XmlFetchEvents();
+    virtual ~XmlFetchEvents();
 
     double getAttributeValue(const std::string& elemName, double binVal);
 
