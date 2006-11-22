@@ -1,7 +1,7 @@
 /**  @file XmlFetchEvents.cxx
 @brief implementation of class XmlFetchEvents
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/XmlFetchEvents.cxx,v 1.8 2006/11/22 18:53:28 burnett Exp $  
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/XmlFetchEvents.cxx,v 1.9 2006/11/22 19:33:20 burnett Exp $  
 */
 
 #include "XmlFetchEvents.h"
@@ -215,6 +215,7 @@ TTree* XmlFetchEvents::getTree(double binVal) {
         delete m_file;  // get rid of last guy
         m_file = new TFile(fileNameStr.c_str());
         tree = (TTree*)m_file->Get(treeNameStr.c_str());
+        if( tree==0 ) throw std::runtime_error("XMLFetchEvent: did not find the TTree "+treeNameStr);
     }else{
         throw std::runtime_error("XMLFetchEvents::getTree expected a single file");
     }
