@@ -2,7 +2,7 @@
 
     @brief declaration of the IFetchEvents class
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/IFetchEvents.h,v 1.5 2006/11/16 22:50:08 burnett Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/IFetchEvents.h,v 1.6 2006/11/21 19:26:03 burnett Exp $
 
 */
 
@@ -39,6 +39,9 @@ public:
 
     /// Returns a TTree* constructed from the file stored in the m_dataStore
     virtual TTree* getTree(double binval){return 0;}
+
+    virtual double minVal()const{return -1e30;}///< return minimum value allowed
+    virtual double maxVal()const{return +1e30;}///< return maximum value allowed
 
 private:
     friend class XmlFetchEvents;

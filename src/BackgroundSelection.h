@@ -2,7 +2,7 @@
 
     @brief declaration of the BackgroundSelection class
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.h,v 1.19 2006/11/21 19:26:03 burnett Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.h,v 1.20 2006/11/22 18:53:28 burnett Exp $
 
 */
 
@@ -55,11 +55,11 @@ public:
  
     /**@brief the current trigger rate for the current value
     */
-    double triggerRate()const;
+    double triggerRate()const{return m_triggerRate;}
 
     /**@brief the downlink rate for the current value
     */
-    double downlinkRate()const;
+    double downlinkRate()const{return m_downlinkRate;}
 
     const std::string& name()const{return m_varname;}
 
@@ -74,7 +74,7 @@ private:
 
     /**@brief Retrieve the correct tree for current value of the variable(s) so copyEvent comes from correct sample bin
     */
-    void setCurrentTree();
+    void setCurrentTree(double val);
 
     std::string m_varname; ///< name of the variable that we use to key the rates
     TLeaf* m_varleaf;      ///< corresponding TLeaf for access to current value
@@ -90,6 +90,8 @@ private:
 
     IFetchEvents *m_fetch; ///< abstract guy that processes the xml file
     bool m_useChain; ///< flag that we are expecting to find lists of files to combine into TChain objects
+    double m_value; ///< current value
+    double m_downlinkRate, m_triggerRate;
 };
 
 
