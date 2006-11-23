@@ -2,7 +2,7 @@
 
 @brief declaration  of the class InterleaveAlg
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/InterleaveAlg.h,v 1.10 2006/10/26 14:34:42 burnett Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/InterleaveAlg.h,v 1.11 2006/11/23 03:11:21 burnett Exp $
 
 */
 #ifndef InterleaveAlg_h
@@ -58,8 +58,6 @@ public:
     
 private: 
     void copyEventInfo(); ///< set up 
-
-    //double magneticLatitude();
     
     BackgroundSelection* m_selector; ///< current selector
 
@@ -75,8 +73,12 @@ private:
     StringProperty m_mapName;  ///< name of the map tree
     int m_count;   ///< number of processed events
 
+    // following for the interleave info tuple
     int m_run, m_event;   ///< current run, event
     int m_irun, m_ievent; ///< interleaved run, event
+    char  m_type[40];    ///< background type
+    float m_value;        ///< value used
+
     TTree * m_meritTuple;
 
     TLeaf * m_runLeaf;
