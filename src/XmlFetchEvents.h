@@ -2,7 +2,7 @@
 
     @brief declaration of the FetchEvents class
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/XmlFetchEvents.h,v 1.7 2006/11/22 18:53:28 burnett Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/XmlFetchEvents.h,v 1.8 2006/11/23 03:11:21 burnett Exp $
 
 */
 
@@ -38,12 +38,6 @@ public:
     double getAttributeValue(const std::string& elemName, double binVal);
 
     int getFiles(double binVal, TChain* chain);
-
-    /// Purpose and Method:  Returns a TTree constructed from the "fileList" associated with the bin
-    /// found using binVal.
-    /// Returns a pointer to the TTree  if completely successful
-    /// returns 0 if still in the same bin as a previous call
-    TTree* getTree(double binVal);
 
     virtual double minVal()const{return m_minval;}///< return minimum value allowed
     virtual double maxVal()const{return m_maxval;}///< return maximum value allowed

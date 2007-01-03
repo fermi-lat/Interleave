@@ -3,10 +3,11 @@
 
   package Interleave
   Package coordinators: T. Burnett
-$Id: release.notes,v 1.16 2006/11/22 20:17:12 burnett Exp $
+$Id: release.notes,v 1.17 2006/11/23 21:30:49 burnett Exp $
 
 @verbatim
 
+03-jan-07 v1r2p1 THB test version to see what happens with test program on Linux
 23-nov-06 v1r2   THB Fix up map to include info on which source, and value used
 22-nov-06 v1r1p3 THB Put TTree alternative to allow testing of other logic. 
 04-mar-06 v1r0   THB refactor to allow for multiple tracked variables (PtMagLat and PtSCzenith)

@@ -2,7 +2,7 @@
 
     @brief declaration of the BackgroundSelection class
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.h,v 1.20 2006/11/22 18:53:28 burnett Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.h,v 1.21 2006/11/23 03:11:21 burnett Exp $
 
 */
 
@@ -17,6 +17,7 @@ class IFetchEvents;
 class TTree;
 class TFile;
 class TChain;
+class TObject;
 class TLeaf;
 
 /** @class BackgroundSelection
@@ -89,9 +90,11 @@ private:
     std::string m_xmlFileName;  ///< either path to a ROOT file to sample from, or a directory containing files
 
     IFetchEvents *m_fetch; ///< abstract guy that processes the xml file
-    bool m_useChain; ///< flag that we are expecting to find lists of files to combine into TChain objects
     double m_value; ///< current value
     double m_downlinkRate, m_triggerRate;
+
+    TObject* m_observer;  ///< instance of special class for notification
+    void notify();   ///< called by the notification scheme
 };
 
 
