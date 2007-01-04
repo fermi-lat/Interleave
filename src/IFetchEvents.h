@@ -2,7 +2,7 @@
 
     @brief declaration of the IFetchEvents class
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/IFetchEvents.h,v 1.6 2006/11/21 19:26:03 burnett Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/IFetchEvents.h,v 1.7 2006/11/23 03:11:21 burnett Exp $
 
 */
 
@@ -42,6 +42,9 @@ public:
 
     virtual double minVal()const{return -1e30;}///< return minimum value allowed
     virtual double maxVal()const{return +1e30;}///< return maximum value allowed
+
+    /// test if value is valid
+    virtual bool isValid(double val)const{return val>=minVal() && val< maxVal();}
 
 private:
     friend class XmlFetchEvents;

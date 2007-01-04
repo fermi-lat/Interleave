@@ -2,7 +2,7 @@
 
     @brief declaration of the BackgroundSelection class
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.h,v 1.21 2006/11/23 03:11:21 burnett Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.h,v 1.22 2007/01/03 18:18:40 burnett Exp $
 
 */
 
@@ -71,7 +71,7 @@ private:
 
     /**@brief Set the addresses of active leaves, so that a GetEvent will perform a copy
     */
-    void setLeafPointers(TTree*);
+    void setLeafPointers();
 
     /**@brief Retrieve the correct tree for current value of the variable(s) so copyEvent comes from correct sample bin
     */
