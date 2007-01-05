@@ -2,7 +2,7 @@
 
     @brief declaration of the FetchEvents class
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/XmlFetchEvents.h,v 1.8 2006/11/23 03:11:21 burnett Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/XmlFetchEvents.h,v 1.9 2007/01/03 18:18:40 burnett Exp $
 
 */
 
@@ -43,6 +43,7 @@ public:
     virtual double maxVal()const{return m_maxval;}///< return maximum value allowed
 
     static double m_badVal;
+    virtual bool isValid(double val)const{return val>=m_lastBinMin && val<m_lastBinMax;}
 
 private:
 
