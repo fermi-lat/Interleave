@@ -1,7 +1,7 @@
 /**  @file XmlFetchEvents.cxx
 @brief implementation of class XmlFetchEvents
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/XmlFetchEvents.cxx,v 1.13 2006/11/23 21:30:50 burnett Exp $  
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/XmlFetchEvents.cxx,v 1.14 2007/01/03 18:18:40 burnett Exp $  
 */
 
 #include "XmlFetchEvents.h"
@@ -26,7 +26,6 @@ double XmlFetchEvents::m_badVal = -999999.0;
 
 XmlFetchEvents::XmlFetchEvents(const std::string& xmlFile, const std::string& param)
 : IFetchEvents(xmlFile,param) 
-, m_file(0)
 {
 
     XERCES_CPP_NAMESPACE_QUALIFIER DOMDocument* doc;
@@ -87,7 +86,6 @@ XmlFetchEvents::~XmlFetchEvents()
     m_children.clear();
     m_paramChildren.clear();
     m_binChildren.clear();
-    delete m_file;
 }
 
 double XmlFetchEvents::getAttributeValue(const std::string& elemName, double binVal) {

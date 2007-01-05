@@ -2,7 +2,7 @@
 
     @brief declaration of the FetchEvents class
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/XmlFetchEvents.h,v 1.9 2007/01/03 18:18:40 burnett Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/XmlFetchEvents.h,v 1.10 2007/01/05 16:18:06 burnett Exp $
 
 */
 
@@ -65,7 +65,6 @@ private:
 
     double m_minval, m_maxval;
 
-    TFile * m_file; ///< current TFile
 };
 
 
