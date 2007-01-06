@@ -1,7 +1,7 @@
 /**  @file BackgroundSelection.cxx
     @brief implementation of class BackgroundSelection
     
-  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.cxx,v 1.34 2007/01/04 16:36:19 burnett Exp $  
+  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.cxx,v 1.35 2007/01/06 02:57:31 heather Exp $  
 */
 
 #include "BackgroundSelection.h"
@@ -16,6 +16,7 @@
 
 #include <stdexcept>
 #include <cassert>
+#include <sstream>
 #include <cmath>
 #include <vector>
 
@@ -128,7 +129,10 @@ void BackgroundSelection::setCurrentTree(double x)
     
     int stat= m_fetch->getFiles(x, dynamic_cast<TChain*>(m_inputTree));
     if( stat!=0 ){
-        throw std::runtime_error("BackgaroundSelection::setCurrentTree: invalid tree");
+        std::stringstream msg;
+        msg << "BackgaroundSelection::setCurrentTree: called with "<< name() 
+            <<" = "<< x << ", getFiles returned error code " << stat;
+        throw std::runtime_error(msg.str());
     }
 
     // this is necessary due to the design of ROOT :-(
