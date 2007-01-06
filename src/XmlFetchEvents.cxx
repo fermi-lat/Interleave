@@ -1,7 +1,7 @@
 /**  @file XmlFetchEvents.cxx
 @brief implementation of class XmlFetchEvents
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/XmlFetchEvents.cxx,v 1.14 2007/01/03 18:18:40 burnett Exp $  
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/XmlFetchEvents.cxx,v 1.15 2007/01/05 16:21:56 burnett Exp $  
 */
 
 #include "XmlFetchEvents.h"
@@ -134,11 +134,9 @@ int XmlFetchEvents::getFiles(double binVal, TChain* chain) {
     std::vector<DOMElement*> fileList;
     fileList.clear();
     // Check to see if we're accessing the same bin we have previously
-    if (m_lastBinIndex >= 0) {
-        if ((binVal >= m_lastBinMin) && (binVal <= m_lastBinMax)) {
+    if ((m_lastBinIndex >= 0) && (binVal >= m_lastBinMin) && (binVal <= m_lastBinMax) ) {
             DOMElement* fileListElem = xmlBase::Dom::findFirstChildByName(m_binChildren[m_lastBinIndex], "fileList");
             xmlBase::Dom::getChildrenByTagName(fileListElem, "file", fileList);
-        }
     } else {
         // Otherwise search the whole vector
         std::vector<DOMElement*>::const_iterator domElemIt; 
