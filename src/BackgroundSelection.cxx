@@ -1,7 +1,7 @@
 /**  @file BackgroundSelection.cxx
     @brief implementation of class BackgroundSelection
     
-  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.cxx,v 1.35 2007/01/06 02:57:31 heather Exp $  
+  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.cxx,v 1.36 2007/01/06 16:18:51 burnett Exp $  
 */
 
 #include "BackgroundSelection.h"
@@ -89,10 +89,17 @@ void BackgroundSelection::selectEvent()
 {
 
     double x(value());
+    if( !m_fetch->isValid(x) ){
+        std::stringstream msg;
+        msg << "BackgaroundSelection::selectEvent: called with "<< name() 
+            <<" = "<< x << " is not in range " 
+            <<  m_fetch->minValFullRange() << ", to " 
+            <<  m_fetch->maxValFullRange() << std::endl;
+        throw std::runtime_error(msg.str());
+    }
 
     // make sure we have the right tree selected for new value    // if still valid, do not change
-    if( !m_fetch->isValid(x) ){
-
+    if( !m_fetch->isCurrent(x) ){
         setCurrentTree(x);   
     }
 
