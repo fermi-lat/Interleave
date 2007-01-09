@@ -3,10 +3,11 @@
 
   package Interleave
   Package coordinators: T. Burnett
-$Id: release.notes,v 1.21 2007/01/06 16:18:51 burnett Exp $
+$Id: release.notes,v 1.22 2007/01/07 00:16:58 burnett Exp $
 
 @verbatim
 
+09-jan-07 v1r2p7 HMK init min and max val in XmlFetchEvents
 05-jan-07 v1r2p6 THB Heather's fixes, plus separation ofthe XML files according to the source
 04-jan-07 v1r2p2 THB test version to see what happens with test program on Linux
 23-nov-06 v1r2   THB Fix up map to include info on which source, and value used

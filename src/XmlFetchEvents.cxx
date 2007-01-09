@@ -1,7 +1,7 @@
 /**  @file XmlFetchEvents.cxx
 @brief implementation of class XmlFetchEvents
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/XmlFetchEvents.cxx,v 1.15 2007/01/05 16:21:56 burnett Exp $  
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/XmlFetchEvents.cxx,v 1.16 2007/01/06 02:57:31 heather Exp $  
 */
 
 #include "XmlFetchEvents.h"
@@ -25,7 +25,9 @@ using xmlBase::Dom;
 double XmlFetchEvents::m_badVal = -999999.0;
 
 XmlFetchEvents::XmlFetchEvents(const std::string& xmlFile, const std::string& param)
-: IFetchEvents(xmlFile,param) 
+: IFetchEvents(xmlFile,param),
+  m_minval(+1e30),
+  m_maxval(-1e30)
 {
 
     XERCES_CPP_NAMESPACE_QUALIFIER DOMDocument* doc;
