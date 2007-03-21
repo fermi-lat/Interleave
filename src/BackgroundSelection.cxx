@@ -1,7 +1,7 @@
 /**  @file BackgroundSelection.cxx
     @brief implementation of class BackgroundSelection
     
-  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.cxx,v 1.36 2007/01/06 16:18:51 burnett Exp $  
+  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.cxx,v 1.37 2007/01/07 00:16:58 burnett Exp $  
 */
 
 #include "BackgroundSelection.h"
@@ -89,6 +89,9 @@ void BackgroundSelection::selectEvent()
 {
 
     double x(value());
+#if 1 // have to do this since my specification was not understood
+    x = fabs(x); 
+#endif
     if( !m_fetch->isValid(x) ){
         std::stringstream msg;
         msg << "BackgaroundSelection::selectEvent: called with "<< name() 
