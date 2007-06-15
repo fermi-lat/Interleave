@@ -3,10 +3,11 @@
 
   package Interleave
   Package coordinators: T. Burnett
-$Id: release.notes,v 1.25 2007/03/29 19:16:10 usher Exp $
+$Id: release.notes,v 1.26 2007/06/15 20:10:44 usher Exp $
 
 @verbatim
 
+15-Jun-07 v1r3p1 TU  Forgot to modify xml files... source "name" must match that in source_library.xml
 15-Jun-07 v1r3   TU  Modifications to read source selected by FluxAlg and add offset to input source id
 30-Mar-07 v1r2p9 TU  Change to using GetEntry instead of LoadTree in BackgroundSelection.cxx
 20-sep-07 v1r2p8 THB Enforce a requirement that all variables used be positive, by taking absolute value
