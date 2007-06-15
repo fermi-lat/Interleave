@@ -2,7 +2,7 @@
 
     @brief declaration of the IFetchEvents class
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/IFetchEvents.h,v 1.9 2007/01/06 02:57:32 heather Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/IFetchEvents.h,v 1.10 2007/01/07 00:16:58 burnett Exp $
 
 */
 
@@ -43,6 +43,8 @@ public:
 
     virtual double minVal()const{return -1e30; }///< return minimum value in current range
     virtual double maxVal()const{return +1e30; }///< return maximum value in current range
+
+    virtual const std::string& name() const = 0;
 
     /// test if value is valid in current range
     virtual bool isCurrent(double val)const{return val>=minVal() && val< maxVal();}

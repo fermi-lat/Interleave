@@ -1,7 +1,7 @@
 /**  @file XmlFetchEvents.cxx
 @brief implementation of class XmlFetchEvents
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/XmlFetchEvents.cxx,v 1.16 2007/01/06 02:57:31 heather Exp $  
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/XmlFetchEvents.cxx,v 1.17 2007/01/09 11:52:42 heather Exp $  
 */
 
 #include "XmlFetchEvents.h"
@@ -59,6 +59,7 @@ XmlFetchEvents::XmlFetchEvents(const std::string& xmlFile, const std::string& pa
         std::string typeAttr = xmlBase::Dom::getAttribute(*domElemIt, "type");
         if (typeAttr == m_param) {
             // found one save it
+            m_name = xmlBase::Dom::getAttribute(*domElemIt, "name");
             m_paramChildren.push_back(*domElemIt);
             double minval(facilities::Util::stringToDouble(xmlBase::Dom::getAttribute(*domElemIt, "rangeMin"))),
                 maxval(facilities::Util::stringToDouble(xmlBase::Dom::getAttribute(*domElemIt, "rangeMax")));

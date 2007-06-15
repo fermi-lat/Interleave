@@ -2,7 +2,7 @@
 
     @brief declaration of the BackgroundSelection class
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.h,v 1.22 2007/01/03 18:18:40 burnett Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.h,v 1.23 2007/01/04 16:36:19 burnett Exp $
 
 */
 
@@ -62,6 +62,7 @@ public:
     */
     double downlinkRate()const{return m_downlinkRate;}
 
+    const std::string& sourceName() const;
     const std::string& name()const{return m_varname;}
 
 private:
@@ -77,8 +78,8 @@ private:
     */
     void setCurrentTree(double val);
 
-    std::string m_varname; ///< name of the variable that we use to key the rates
-    TLeaf* m_varleaf;      ///< corresponding TLeaf for access to current value
+    std::string m_varname;    ///< name of the variable that we use to key the rates
+    TLeaf* m_varleaf;         ///< corresponding TLeaf for access to current value
 
     unsigned int m_event, m_eventOffset;
    

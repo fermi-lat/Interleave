@@ -1,7 +1,7 @@
 /**  @file BackgroundSelection.cxx
     @brief implementation of class BackgroundSelection
     
-  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.cxx,v 1.38 2007/03/21 01:30:15 burnett Exp $  
+  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.cxx,v 1.39 2007/03/29 19:13:32 usher Exp $  
 */
 
 #include "BackgroundSelection.h"
@@ -76,6 +76,11 @@ BackgroundSelection::~BackgroundSelection()
 void BackgroundSelection::notify()
 {
     setLeafPointers();
+}
+
+const std::string& BackgroundSelection::sourceName() const 
+{
+    return m_fetch->name();
 }
 
 //------------------------------------------------------------------------
