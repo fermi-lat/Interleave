@@ -3,10 +3,11 @@
 
   package Interleave
   Package coordinators: T. Burnett
-$Id: release.notes,v 1.26 2007/06/15 20:10:44 usher Exp $
+$Id: release.notes,v 1.27 2007/06/15 20:16:04 usher Exp $
 
 @verbatim
 
+27-Jun-07 v1r4   TU  Change job options strategy with this release for interleave
 15-Jun-07 v1r3p1 TU  Forgot to modify xml files... source "name" must match that in source_library.xml
 15-Jun-07 v1r3   TU  Modifications to read source selected by FluxAlg and add offset to input source id
 30-Mar-07 v1r2p9 TU  Change to using GetEntry instead of LoadTree in BackgroundSelection.cxx
