@@ -2,7 +2,7 @@
 
 @brief declaration  of the class InterleaveAlg
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/InterleaveAlg.h,v 1.13 2007/01/06 05:03:49 burnett Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/InterleaveAlg.h,v 1.14 2007/06/15 20:09:01 usher Exp $
 
 */
 
@@ -75,7 +75,6 @@ private:
     StringArrayProperty  m_disableList;
     StringProperty       m_mapName;     ///< name of the map tree
     int                  m_count;       ///< number of processed events
-    int                  m_idOffset;    ///< offset to add to source ids
 
     // following for the interleave info tuple
     int                  m_run, m_event;   ///< current run, event
