@@ -1,7 +1,7 @@
 /**  @file BackgroundSelection.cxx
     @brief implementation of class BackgroundSelection
     
-  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.cxx,v 1.39 2007/03/29 19:13:32 usher Exp $  
+  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundSelection.cxx,v 1.40 2007/06/15 20:09:01 usher Exp $  
 */
 
 #include "BackgroundSelection.h"
@@ -114,9 +114,12 @@ void BackgroundSelection::selectEvent()
     // grab the next event, cycling if needed
     //Long64_t code = m_inputTree->LoadTree(m_eventOffset++);
     int code = m_inputTree->GetEntry(m_eventOffset++);
-    if( code<0){ m_eventOffset = 0; 
+    if( code <= 0)
+    { 
+        m_eventOffset = 0; 
         code = m_inputTree->LoadTree(m_eventOffset++);
-        if( code < 0 ){
+        if( code <= 0 )
+        {
             throw std::runtime_error("BackgroundSelection::selectEvent -- could not read file");
         }
     }
