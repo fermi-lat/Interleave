@@ -2,7 +2,7 @@
 
 @brief declaration and definition of the class InterleaveAlg
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/InterleaveAlg.cxx,v 1.30 2007/06/15 20:09:01 usher Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/InterleaveAlg.cxx,v 1.31 2007/06/27 19:52:14 usher Exp $
 
 */
 
@@ -230,7 +230,7 @@ StatusCode InterleaveAlg::execute()
     const Event::McParticle& primary = **particles->begin();
     double ke = primary.initialFourMomentum().e()-primary.initialFourMomentum().m();
 
-    if( ke>1. ){
+    if( ke>0. ){
         // not an interleave particle
         //setFilterPassed(false); // since this is on a branch, and we want the sequence to fail
         return sc; // not a flagged sampled_background 
