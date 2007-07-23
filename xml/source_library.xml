@@ -1,18 +1,21 @@
-<!-- $Header: /nfs/slac/g/glast/ground/cvs/Interleave/xml/source_library.xml,v 1.1.1.1 2005/12/14 20:38:27 burnett Exp $
+<!-- $Header: /nfs/slac/g/glast/ground/cvs/Interleave/xml/source_library.xml,v 1.2 2006/10/25 17:14:30 burnett Exp $
 -->
-<source_library title="pseudo_background">    
+<source_library title="pseudo_background">   
 
+    <!-- Note that setting frame="zenith" is necessary to avoid occultation
+	     the frame does not matter since no particle is generated
+     -->
     <source name="sampled_background">
         <spectrum escale="GeV"> 
             <SpectrumClass name="SampledBackground" params="PtMagLat" /> 
-            <use_spectrum/>
+            <use_spectrum frame="zenith"/>
         </spectrum>
     </source>
 
     <source name="sampled_EarthAlbedo">
         <spectrum escale="GeV"> 
             <SpectrumClass name="SampledBackground" params="PtSCzenith"/> 
-            <use_spectrum/>
+            <use_spectrum frame="zenith"/>
         </spectrum>
     </source>
 
