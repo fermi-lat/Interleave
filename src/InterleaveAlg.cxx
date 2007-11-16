@@ -2,7 +2,7 @@
 
 @brief declaration and definition of the class InterleaveAlg
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/InterleaveAlg.cxx,v 1.33 2007/07/23 21:48:16 burnett Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/InterleaveAlg.cxx,v 1.34 2007/11/09 19:06:19 usher Exp $
 
 */
 #include "GaudiKernel/Algorithm.h"
@@ -69,6 +69,7 @@ private:
     StringProperty       m_treeName;    ///< name of the tree to process
     StringProperty       m_filePath;    ///< path to files containing info for each variable
     StringProperty       m_mapName;     ///< name of the map tree
+    StringArrayProperty  m_disableList;
     int                  m_count;       ///< number of processed events
 
     BackgroundManager*   m_bkgndManager;
@@ -88,6 +89,15 @@ InterleaveAlg::InterleaveAlg(const std::string& name, ISvcLocator* pSvcLocator)
     declareProperty("FilePath",       m_filePath="");
     declareProperty("TreeName",       m_treeName="MeritTuple");
     declareProperty("MapName",        m_mapName="interleave_map");
+    declareProperty("DisableList",    m_disableList);
+
+    // initialize the disable list, which can be added to, or replaced in the JO
+    std::vector<std::string> tlist;
+    tlist.push_back("EvtElapsedTime");
+    tlist.push_back("EvtLiveTime");
+    tlist.push_back("Pt*");   // use current position, etc.
+    tlist.push_back("FT1*");  // will recalculate
+    m_disableList = tlist;
 
     // Get the pointer to the background manager
     m_bkgndManager = BackgroundManager::instance();
@@ -134,7 +144,7 @@ StatusCode InterleaveAlg::initialize()
             log << MSG::INFO << "setting up tuple key "<<  name <<endreq;    
             
             IBkgndTupleSelectTool* background = 0;
-            if ( (sc = toolSvc()->retrieveTool("BkgndSelectTool", name, background, this)).isFailure())
+            if ( (sc = toolSvc()->retrieveTool("BkgndTupleSelectTool", name, background, this)).isFailure())
             {
                 log << MSG::ERROR << "failed to retrieve BkgndSelectTool for " + name << endreq;
                 return sc;
