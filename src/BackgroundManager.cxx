@@ -1,5 +1,5 @@
 // File and Version Information:
-// $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundManager.cxx,v 0.1 2004/11/09 20:39:18 usher Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BackgroundManager.cxx,v 1.1 2007/11/09 19:06:19 usher Exp $
 //
 // Description: Managment and access for interleave background sources
 //
@@ -29,7 +29,7 @@ BackgroundManager* BackgroundManager::instance()
 }
 
 //Constructor for the propagator class
-BackgroundManager::BackgroundManager() : m_defaultRate(500)
+BackgroundManager::BackgroundManager() : m_celManager(false), m_defaultRate(500)
 {
     // Purpose and Method:  Instantiates if it doesn't exist
     // Inputs:  None

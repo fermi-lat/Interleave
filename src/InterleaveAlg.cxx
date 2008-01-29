@@ -2,7 +2,7 @@
 
 @brief declaration and definition of the class InterleaveAlg
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/InterleaveAlg.cxx,v 1.34 2007/11/09 19:06:19 usher Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/InterleaveAlg.cxx,v 1.35 2007/11/16 15:38:23 usher Exp $
 
 */
 #include "GaudiKernel/Algorithm.h"
@@ -131,6 +131,10 @@ StatusCode InterleaveAlg::initialize()
         log << MSG::INFO << "Using xml file path " << filePath << " for interleave." << endreq;
     }
 
+    // Initialize the CEL manager
+    std::string celFileName = "$GLEAMROOT/data/CELInterleaveFile.root";
+    m_bkgndManager->getCelManager()->initWrite(celFileName,"RECREATE");
+
     // initialize the background selection
     try 
     {
@@ -248,6 +252,8 @@ StatusCode InterleaveAlg::finalize()
     MsgStream log(msgSvc(), name());
 
     log << MSG::INFO << "Inserted "<< m_count << " sampled background events." << endreq; 
+
+    m_bkgndManager->getCelManager()->fillFileAndTreeSet();
 
     return sc;
 }
