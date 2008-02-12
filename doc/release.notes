@@ -3,11 +3,11 @@
 
   package Interleave
   Package coordinators: T. Burnett
-$Id: release.notes,v 1.33 2007/07/21 20:24:08 burnett Exp $
+$Id: release.notes,v 1.34 2008/02/08 21:33:58 usher Exp $
 
 @verbatim
 
- 8-Feb-07 v1r5p0 TU  Restructure Interleave in preparation for using CEL's
+ 8-Feb-07 v1r5p1 TU  Restructure Interleave in preparation for using CEL's
 21-Jul-07 v1r4p5 THB Tweak the test program to check SAA failure on all platforms
 17-Jul-07 v1r4p4 THB Make the test program work
  1-Jul-07 v1r4p3 TU  Fix test on zero kinetic energy for interleave sources
