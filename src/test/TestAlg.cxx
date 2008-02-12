@@ -1,7 +1,7 @@
 /** @file TestAlg.cxx
     @brief Used for test program
 
- $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/test/TestAlg.cxx,v 1.5 2006/10/25 20:57:08 burnett Exp $
+ $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/test/TestAlg.cxx,v 1.6 2007/07/21 20:24:08 burnett Exp $
 
 */
 
@@ -14,7 +14,7 @@
 // access to the tuple
 #include "ntupleWriterSvc/INTupleWriterSvc.h"
 
-#include "../BackgroundSelection.h"
+//#include "../BackgroundSelection.h"
 // Gaudi system includes
 #include "GaudiKernel/IDataProviderSvc.h"
 #include "GaudiKernel/SmartDataPtr.h"
