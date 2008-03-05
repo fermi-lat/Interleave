@@ -2,7 +2,7 @@
 
 @brief declaration and definition of the class InterleaveAlg
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/InterleaveAlg.cxx,v 1.36 2008/01/29 23:53:26 usher Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/InterleaveAlg.cxx,v 1.37 2008/02/08 21:32:11 usher Exp $
 
 */
 #include "GaudiKernel/Algorithm.h"
@@ -200,6 +200,7 @@ StatusCode InterleaveAlg::execute()
 
     if( ke > 0. )
     {
+        log <<  MSG::DEBUG << "ke > 0, returning " << endreq;
         return sc; // not a flagged sampled_background 
     }
     ++m_count;
@@ -220,6 +221,7 @@ StatusCode InterleaveAlg::execute()
     IBkgndTupleSelectTool* selector = srcToSelMap[sourceName];
 
     // ask for a tree corresponding to our current position: it will set all the tuple
+    log << MSG::DEBUG << "Calling selectEvent" << endreq;
     selector->selectEvent();
 
     // let the livetime service know about the current trigger rate,
@@ -234,12 +236,14 @@ StatusCode InterleaveAlg::execute()
     SmartDataPtr<Event::EventHeader>   header(eventSvc(),    EventModel::EventHeader);
     header->setLivetime( m_LivetimeSvc->livetime());
 
+    log << MSG::DEBUG << "Calling copyEventInfo" << endreq;
     // overwrite the event info
     selector->copyEventInfo();
 
     // We have read the event in, want to now proceed down the interleave branch
     setFilterPassed(false); // since this is on a branch, and we want the sequence to fail
 
+    log << MSG::DEBUG << "exiting InterleaveAlg" << endreq;
     return sc;
 }
 
