@@ -2,7 +2,7 @@
 
     @brief declaration of the IFetchEvents class
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/IFetchEvents.h,v 1.10 2007/01/07 00:16:58 burnett Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/IFetchEvents.h,v 1.11 2007/06/15 20:09:01 usher Exp $
 
 */
 
@@ -35,7 +35,7 @@ public:
     virtual double getAttributeValue(const std::string& elemName, double binVal) = 0;
 
     /// adds TTree's to a TChain
-    virtual int getFiles(double binVal, TChain* chain) = 0;
+    virtual int getFiles(double binVal, TChain* chain, bool verbose=false) = 0;
 
 
     virtual double minValFullRange()const{return -1e30;}///< return minimum value allowed

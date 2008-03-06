@@ -2,7 +2,7 @@
 
     @brief declaration of the FetchEvents class
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/XmlFetchEvents.h,v 1.13 2007/01/07 00:16:58 burnett Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/XmlFetchEvents.h,v 1.14 2007/06/15 20:09:01 usher Exp $
 
 */
 
@@ -37,7 +37,7 @@ public:
 
     double getAttributeValue(const std::string& elemName, double binVal);
 
-    int getFiles(double binVal, TChain* chain);
+    int getFiles(double binVal, TChain* chain, bool verbose=false);
 
     virtual double minValFullRange()const{return m_minval;}///< return minimum value allowed
     virtual double maxValFullRange()const{return m_maxval;}///< return maximum value allowed

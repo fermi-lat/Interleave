@@ -1,7 +1,7 @@
 /**  @file XmlFetchEvents.cxx
 @brief implementation of class XmlFetchEvents
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/XmlFetchEvents.cxx,v 1.17 2007/01/09 11:52:42 heather Exp $  
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/XmlFetchEvents.cxx,v 1.18 2007/06/15 20:09:01 usher Exp $  
 */
 
 #include "XmlFetchEvents.h"
@@ -126,7 +126,7 @@ double XmlFetchEvents::getAttributeValue(const std::string& elemName, double bin
 }
 
 
-int XmlFetchEvents::getFiles(double binVal, TChain* chain) {
+int XmlFetchEvents::getFiles(double binVal, TChain* chain, bool verbose) {
     /// Purpose and Method:  Returns a TChain constructed from the "fileList" associated with the bin
     /// found using binVal.
     /// Returns 0 if completely successful
@@ -163,17 +163,23 @@ int XmlFetchEvents::getFiles(double binVal, TChain* chain) {
 
 
     if (fileList.size() > 0) {
+        if (verbose) std::cout << "XmlFetchEvents::getFiles Found " << fileList.size() 
+                               << " files" << std::endl;
         std::vector<DOMElement*>::const_iterator fileIt;
         for (fileIt=fileList.begin(); fileIt != fileList.end(); fileIt++) {
             std::string fileNameStr = xmlBase::Dom::getAttribute(*fileIt, "filePath");
             facilities::Util::expandEnvVar(&fileNameStr);
             std::string treeNameStr = xmlBase::Dom::getAttribute(*fileIt, "treeName");
             // Returns 1 if success and 0 if there is a problem adding the file
+            if (verbose) std::cout << "XmlFetchEvents::getFiles Adding: " 
+                << fileNameStr << std::endl;
             int status = (dynamic_cast<TChain*>(chain))->AddFile(fileNameStr.c_str(),0,treeNameStr.c_str());
             if (status == 0) statFlag |= 1;
         }
-    } else
+    } else {
+        if (verbose) std::cout << "XmlFetchEvents::getFiles No files found" << std::endl;
         statFlag = -1;
+    }
 
     return(statFlag);
 }
