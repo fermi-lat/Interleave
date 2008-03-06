@@ -1,7 +1,7 @@
 /**  @file XmlFetchEvents.cxx
 @brief implementation of class XmlFetchEvents
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/XmlFetchEvents.cxx,v 1.18 2007/06/15 20:09:01 usher Exp $  
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/XmlFetchEvents.cxx,v 1.19 2008/03/06 04:24:11 heather Exp $  
 */
 
 #include "XmlFetchEvents.h"
@@ -16,6 +16,7 @@ $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/XmlFetchEvents.cxx,v 1.18 2
 #include <sstream>
 #include <cmath>
 #include <cassert>
+#include <ctime>
 
 
 using XERCES_CPP_NAMESPACE_QUALIFIER DOMDocument;
@@ -171,8 +172,12 @@ int XmlFetchEvents::getFiles(double binVal, TChain* chain, bool verbose) {
             facilities::Util::expandEnvVar(&fileNameStr);
             std::string treeNameStr = xmlBase::Dom::getAttribute(*fileIt, "treeName");
             // Returns 1 if success and 0 if there is a problem adding the file
-            if (verbose) std::cout << "XmlFetchEvents::getFiles Adding: " 
-                << fileNameStr << std::endl;
+            if (verbose) {
+                time_t rawtime;
+                time( &rawtime );
+                std::cout << "XmlFetchEvents::getFiles " << ctime(&rawtime)
+                          << " Adding: " << fileNameStr << std::endl;
+            }
             int status = (dynamic_cast<TChain*>(chain))->AddFile(fileNameStr.c_str(),0,treeNameStr.c_str());
             if (status == 0) statFlag |= 1;
         }
