@@ -1,7 +1,7 @@
 /**  @file XmlFetchEvents.cxx
 @brief implementation of class XmlFetchEvents
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/XmlFetchEvents.cxx,v 1.19 2008/03/06 04:24:11 heather Exp $  
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/XmlFetchEvents.cxx,v 1.20 2008/03/06 16:30:06 heather Exp $  
 */
 
 #include "XmlFetchEvents.h"
@@ -179,6 +179,8 @@ int XmlFetchEvents::getFiles(double binVal, TChain* chain, bool verbose) {
                           << " Adding: " << fileNameStr << std::endl;
             }
             int status = (dynamic_cast<TChain*>(chain))->AddFile(fileNameStr.c_str(),0,treeNameStr.c_str());
+            if (verbose) std::cout << "XmlFethEvents::getFiles returned "
+                         << status << std::endl;
             if (status == 0) statFlag |= 1;
         }
     } else {
@@ -186,6 +188,7 @@ int XmlFetchEvents::getFiles(double binVal, TChain* chain, bool verbose) {
         statFlag = -1;
     }
 
+    if(verbose) std::cout << "Returning from XmlFetchEvents::getFiles" << std::endl;
     return(statFlag);
 }
 
