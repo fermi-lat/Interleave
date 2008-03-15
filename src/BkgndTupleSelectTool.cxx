@@ -1,7 +1,7 @@
 /**  @file BkgndTupleSelectTool.cxx
     @brief implementation of class BkgndTupleSelectTool
     
-  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BkgndTupleSelectTool.cxx,v 1.10 2008/03/07 20:33:24 heather Exp $  
+  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BkgndTupleSelectTool.cxx,v 1.11 2008/03/14 03:35:05 heather Exp $  
 */
 
 #include "IBkgndTupleSelectTool.h"
@@ -399,7 +399,7 @@ void BkgndTupleSelectTool::setCurrentTree(double x)
     // this is necessary due to the design of ROOT :-(
     TDirectory *saveDir = gDirectory;
     
-    int stat = m_fetch->getFiles(x, dynamic_cast<TChain*>(m_inputTree), log.level()<=MSG::DEBUG);
+    int stat = m_fetch->getFiles(x, m_inputTree, log.level()<=MSG::DEBUG);
     
     if( stat!=0 )
     {
@@ -454,6 +454,9 @@ void BkgndTupleSelectTool::setCurrentTree(double x)
     log << MSG::DEBUG << "exiting BkgndTupleSelectTool::setCurrentTree" << endreq;
     // this is necessary due to the design of ROOT :-(
     saveDir->cd();
+    } catch( const std::exception& e) {
+        log << MSG::ERROR << e.what() << endreq;
+        abort();
    } catch(...) {
       log << MSG::WARNING << "exception thrown aborting" << endreq;
       abort();
