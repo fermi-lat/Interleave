@@ -1,7 +1,7 @@
 /**  @file BkgndTupleSelectTool.cxx
     @brief implementation of class BkgndTupleSelectTool
     
-  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BkgndTupleSelectTool.cxx,v 1.11 2008/03/14 03:35:05 heather Exp $  
+  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BkgndTupleSelectTool.cxx,v 1.12 2008/03/15 04:50:15 heather Exp $  
 */
 
 #include "IBkgndTupleSelectTool.h"
@@ -395,6 +395,8 @@ void BkgndTupleSelectTool::setCurrentTree(double x)
 
     std::string treeName = m_treeName;
     m_inputTree = new TChain(treeName.data());
+    if (!m_inputTree) 
+        log << MSG::DEBUG << "Failed to create a new TChain" << endreq;
 
     // this is necessary due to the design of ROOT :-(
     TDirectory *saveDir = gDirectory;
