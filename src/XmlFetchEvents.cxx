@@ -1,7 +1,7 @@
 /**  @file XmlFetchEvents.cxx
 @brief implementation of class XmlFetchEvents
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/XmlFetchEvents.cxx,v 1.22 2008/03/15 04:50:15 heather Exp $  
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/XmlFetchEvents.cxx,v 1.23 2008/03/18 03:54:47 heather Exp $  
 */
 
 #include "XmlFetchEvents.h"
@@ -164,8 +164,9 @@ int XmlFetchEvents::getFiles(double binVal, TChain* chain, bool verbose) {
 
 
     if (fileList.size() > 0) {
-        if (verbose) std::cout << "XmlFetchEvents::getFiles Found " << fileList.size() 
-                               << " files" << std::endl;
+        if (verbose) 
+            std::cout << "XmlFetchEvents::getFiles Found " << fileList.size() 
+                      << " files" << std::endl;
         std::vector<DOMElement*>::const_iterator fileIt;
         for (fileIt=fileList.begin(); fileIt != fileList.end(); fileIt++) {
             std::string fileNameStr = xmlBase::Dom::getAttribute(*fileIt, "filePath");
@@ -183,28 +184,17 @@ int XmlFetchEvents::getFiles(double binVal, TChain* chain, bool verbose) {
                                        << " Null" << std::endl;
                 return(-1);
             }
-            TChain *ch = dynamic_cast<TChain*>(chain);
-            if (!ch) {
-                if (verbose) std::cout << "XmlFetchEvents::getFiles dynamic " 
-                                       << "cast failed" << std::endl;
-            }
-            //int status = (dynamic_cast<TChain*>(chain))->AddFile(fileNameStr.c_str(),0,treeNameStr.c_str());
-            TFile f(fileNameStr.c_str(),"READ");
-            if ( (!f.IsOpen()) || (f.IsZombie()) ) {
-                std::cout<<"XmlFetchEvents::getFiles failed to open file "
-                         << fileNameStr << std::endl;
-            }
-            int status = chain->AddFile(fileNameStr.c_str(),0,treeNameStr.c_str());
-            if (verbose) std::cout << "XmlFethEvents::getFiles returned "
+            int status = (dynamic_cast<TChain*>(chain))->AddFile(fileNameStr.c_str(),0,treeNameStr.c_str());
+            if (verbose) std::cout << "XmlFetchEvents::getFiles returned "
                          << status << std::endl;
             if (status == 0) statFlag |= 1;
         }
     } else {
-        if (verbose) std::cout << "XmlFetchEvents::getFiles No files found" << std::endl;
+        if (verbose) 
+            std::cout << "XmlFetchEvents::getFiles No files found" << std::endl;
         statFlag = -1;
     }
 
-    if(verbose) std::cout << "Returning from XmlFetchEvents::getFiles" << std::endl;
     return(statFlag);
 }
 
