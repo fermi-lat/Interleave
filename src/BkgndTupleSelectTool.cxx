@@ -1,7 +1,7 @@
 /**  @file BkgndTupleSelectTool.cxx
     @brief implementation of class BkgndTupleSelectTool
     
-  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BkgndTupleSelectTool.cxx,v 1.13 2008/03/18 03:54:47 heather Exp $  
+  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BkgndTupleSelectTool.cxx,v 1.14 2008/03/27 15:23:25 heather Exp $  
 */
 
 #include "IBkgndTupleSelectTool.h"
@@ -398,7 +398,7 @@ void BkgndTupleSelectTool::setCurrentTree(double x)
     // this is necessary due to the design of ROOT :-(
     TDirectory *saveDir = gDirectory;
     
-    int stat = m_fetch->getFiles(x, m_inputTree, log.level()<=MSG::DEBUG);
+    int stat = m_fetch->getFiles(x, dynamic_cast<TChain*>(m_inputTree), log.level()<=MSG::DEBUG);
     
     if( stat!=0 )
     {
