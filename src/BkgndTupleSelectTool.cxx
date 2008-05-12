@@ -1,7 +1,7 @@
 /**  @file BkgndTupleSelectTool.cxx
     @brief implementation of class BkgndTupleSelectTool
     
-  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BkgndTupleSelectTool.cxx,v 1.14 2008/03/27 15:23:25 heather Exp $  
+  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BkgndTupleSelectTool.cxx,v 1.15 2008/04/07 22:16:14 heather Exp $  
 */
 
 #include "IBkgndTupleSelectTool.h"
@@ -113,8 +113,6 @@ private:
     TLeaf*               m_timeLeaf;
     TLeaf*               m_liveLeaf;
     TLeaf*               m_mcidLeaf;
-   
-    TFile*               m_inputFile; ///< the file that contains the input tree
 
     TTree*               m_outputTree; ///< the tree to copy data to
     TTree*               m_inputTree; ///< the tree to copy data from
@@ -484,7 +482,7 @@ void BkgndTupleSelectTool::setLeafPointers()
         }
         else
         {
-            leaf->SetAddress(otherleaf->GetValuePointer());
+            m_inputTree->SetBranchAddress(leaf->GetName(), otherleaf->GetValuePointer());
         }
     }
 }
