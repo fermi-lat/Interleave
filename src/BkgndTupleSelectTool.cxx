@@ -1,7 +1,7 @@
 /**  @file BkgndTupleSelectTool.cxx
     @brief implementation of class BkgndTupleSelectTool
     
-  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BkgndTupleSelectTool.cxx,v 1.15 2008/04/07 22:16:14 heather Exp $  
+  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BkgndTupleSelectTool.cxx,v 1.16 2008/05/12 19:23:09 usher Exp $  
 */
 
 #include "IBkgndTupleSelectTool.h"
@@ -150,7 +150,6 @@ BkgndTupleSelectTool::BkgndTupleSelectTool(const std::string& type,
                                  , m_varLeaf(0)
                                  , m_runLeaf(0)
                                  , m_eventLeaf(0)
-                                 , m_inputFile(0)
                                  , m_outputTree(0)
                                  , m_inputTree(0)
                                  , m_eventOffset(0)
