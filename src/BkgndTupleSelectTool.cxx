@@ -1,7 +1,7 @@
 /**  @file BkgndTupleSelectTool.cxx
     @brief implementation of class BkgndTupleSelectTool
     
-  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BkgndTupleSelectTool.cxx,v 1.16 2008/05/12 19:23:09 usher Exp $  
+  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BkgndTupleSelectTool.cxx,v 1.17 2008/05/13 02:52:28 heather Exp $  
 */
 
 #include "IBkgndTupleSelectTool.h"
@@ -546,7 +546,7 @@ void BkgndTupleSelectTool::copyEventInfo()
     setLeafValue(m_mcidLeaf, sourceId);
 
     // Save this row
-    m_rootTupleSvc->saveRow(m_treeName.value());
+    m_rootTupleSvc->storeRowFlag(m_treeName.value(),true);
     m_interleaveMap->saveInterleaveMapRow();
 
     // Tell the CEL about this...
