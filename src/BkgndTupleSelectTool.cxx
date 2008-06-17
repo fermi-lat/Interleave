@@ -1,7 +1,7 @@
 /**  @file BkgndTupleSelectTool.cxx
     @brief implementation of class BkgndTupleSelectTool
     
-  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BkgndTupleSelectTool.cxx,v 1.17 2008/05/13 02:52:28 heather Exp $  
+  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BkgndTupleSelectTool.cxx,v 1.18 2008/05/19 04:24:13 usher Exp $  
 */
 
 #include "IBkgndTupleSelectTool.h"
@@ -524,7 +524,7 @@ void BkgndTupleSelectTool::copyEventInfo()
     float  EvtRun         = header->run();
     float  EvtEventId     = header->event();
     double EvtElapsedTime = header->time();
-    float  EvtLiveTime    = header->livetime();
+    double EvtLiveTime    = header->livetime();
 
     // load the map entries to relate the interleaved row back to its original source
     m_interleaveMap->getInterleaveMap()->run      =  header->run();
