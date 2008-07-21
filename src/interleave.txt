@@ -1,7 +1,7 @@
 
 //--------------------------------------------------------
 //     Interleave-specific job options
-//     $Header: /nfs/slac/g/glast/ground/cvs/Gleam/src/interleave.txt,v 1.7 2007/07/20 15:25:20 burnett Exp $
+//     $Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/Interleave/src/interleave.txt,v 1.1 2008/06/19 19:28:51 usher Exp $
 
 ApplicationMgr.DLLs   += { "Interleave" }; 
 
@@ -47,7 +47,7 @@ SimulateEvent.BranchMembers = {"InterleaveBranchAlg"           // End up here if
                               };
                                
 //  the (pseudo) sources: get definitions, and add them to the list of sources
-FluxSvc.source_lib    += {"$(INTERLEAVEROOT)/xml/source_library.xml"};
+FluxSvc.source_lib    += {"$(INTERLEAVEXMLPATH)/source_library.xml"};
 FluxAlg.sources       += {"sampled_background"};
 FluxAlg.sources       += {"sampled_EarthAlbedo"};
 
@@ -58,6 +58,6 @@ InterleaveAlg.DisableList = {"EvtElapsedTime","EvtLiveTime","Pt*","FT1*"};
 TrgAlgInterleave.applyDeadtime=true;
 
 // the path to the xml files with pointers to the data and rate information 
-InterleaveAlg.FilePath = "$(INTERLEAVEPATH)";
+InterleaveAlg.FilePath = "$(INTERLEAVEXMLPATH)";
 
 // ---------------------------------------------------------

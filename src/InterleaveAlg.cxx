@@ -2,7 +2,7 @@
 
 @brief declaration and definition of the class InterleaveAlg
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/InterleaveAlg.cxx,v 1.40 2008/06/11 20:42:44 usher Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/Interleave/src/InterleaveAlg.cxx,v 1.41 2008/06/19 18:56:14 usher Exp $
 
 */
 #include "GaudiKernel/Algorithm.h"
@@ -131,7 +131,7 @@ StatusCode InterleaveAlg::initialize()
     }
 
     // Initialize the CEL manager
-////    std::string celFileName = "$GLEAMROOT/data/CELInterleaveFile.root";
+////    std::string celFileName = "$GLEAMDATAPATH/CELInterleaveFile.root";
 ////    m_bkgndManager->getCelManager()->initWrite(celFileName,"RECREATE");
 
     // initialize the background selection

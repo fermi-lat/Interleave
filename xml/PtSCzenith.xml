@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/xml/PtSCzenith.xml,v 1.1 2007/01/06 05:03:49 burnett Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/Interleave/xml/PtSCzenith.xml,v 1.2 2007/06/15 20:14:25 usher Exp $
 -->
 
 <sourceList xmlns='http://xml.netbeans.org/examples/targetNS'
@@ -11,17 +11,17 @@ $Header: /nfs/slac/g/glast/ground/cvs/Interleave/xml/PtSCzenith.xml,v 1.1 2007/0
    <source name="sampled_EarthAlbedo" type="PtSCzenith" rangeUnits="degrees" rangeMin="-180" rangeMax="180.0">
       <bin min="-180" max="89." triggerRate="100.0" downlinkRate="0.1">
          <fileList>
-            <file filePath="$(ROOTTESTDATAROOT)/data/default/merit.root" treeName="MeritTuple" numEvents="5"/>
+            <file filePath="$(ROOTTESTDATADATAPATH)/default/merit.root" treeName="MeritTuple" numEvents="5"/>
          </fileList>
       </bin>
       <bin min="89" max="91" triggerRate="200.0" downlinkRate="0.2">
          <fileList>
-            <file filePath="$(ROOTTESTDATAROOT)/data/default/merit.root" treeName="MeritTuple" numEvents="5"/>
+            <file filePath="$(ROOTTESTDATADATAPATH)/default/merit.root" treeName="MeritTuple" numEvents="5"/>
          </fileList>
       </bin>
       <bin min="91" max="180." triggerRate="300.0" downlinkRate="0.3">
          <fileList>
-            <file filePath="$(ROOTTESTDATAROOT)/data/default/merit.root" treeName="MeritTuple" numEvents="5"/>
+            <file filePath="$(ROOTTESTDATADATAPATH)/default/merit.root" treeName="MeritTuple" numEvents="5"/>
          </fileList>
       </bin>
    </source>

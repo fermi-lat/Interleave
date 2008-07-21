@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
- $Header: /nfs/slac/g/glast/ground/cvs/Interleave/xml/PtMagLat.xml,v 1.1 2007/01/06 05:03:49 burnett Exp $
+ $Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/Interleave/xml/PtMagLat.xml,v 1.2 2007/06/15 20:14:25 usher Exp $
 -->
 
 <sourceList xmlns='http://xml.netbeans.org/examples/targetNS'
@@ -13,8 +13,8 @@
       <bin min="-45." max="45.0" triggerRate="3000.0" downlinkRate="0.2">
          <fileList>
          <!-- two copies -->
-            <file filePath="$(ROOTTESTDATAROOT)/data/default/merit.root" treeName="MeritTuple" numEvents="5"/>
-            <file filePath="$(ROOTTESTDATAROOT)/data/default/merit.root" treeName="MeritTuple" numEvents="5"/>
+            <file filePath="$(ROOTTESTDATADATAPATH)/default/merit.root" treeName="MeritTuple" numEvents="5"/>
+            <file filePath="$(ROOTTESTDATADATAPATH)/default/merit.root" treeName="MeritTuple" numEvents="5"/>
          </fileList>
       </bin>
    </source>      

@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/mainpage.h,v 1.5 2006/10/26 14:45:18 burnett Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/Interleave/src/mainpage.h,v 1.6 2006/11/23 21:30:50 burnett Exp $
 // Mainpage for doxygen
 
 /*! \mainpage package Interleave
@@ -34,10 +34,10 @@ Trigger.BranchMembers = {"TriggerAlg", "TestAlg", "InterleaveAlg"};
 ApplicationMgr.DLLs+= { "Interleave" };
 Triggered.BranchMembers = {"TriggerAlg", "InterleaveAlg"}; //pseudo-sources do not trigger
 
-FluxSvc.source_lib += {"$(INTERLEAVEROOT)/xml/source_library.xml"};
+FluxSvc.source_lib += {"$(INTERLEAVEXMLPATH)/source_library.xml"};
 FluxAlg.sources += {"sampled_background"};
 FluxAlg.sources += {"sampled_EarthAlbedo"};
-InterleaveAlg.FileName= "$(INTERLEAVEROOT)/xml/exampleBackgroundSet.xml";
+InterleaveAlg.FileName= "$(INTERLEAVEXMLPATH)/exampleBackgroundSet.xml";
 @endverbatim
 
   @section job JobOptions
