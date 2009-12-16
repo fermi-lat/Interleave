@@ -3,12 +3,13 @@
 
   package Interleave
   Package coordinators: T. Burnett
-$Id: release.notes,v 1.53 2009/07/01 16:14:10 heather Exp $
+$Id: release.notes,v 1.54 2009/11/13 23:38:39 jrb Exp $
 
 @verbatim
  * EOH *
 
  Interleave-01-06-04 13-Nov-2009    jrb Updates for SCons
+16-Dec-09 v1r6p5  TU  Update test program for changes in other code
 19-Jun-08 v1r6p3  TU  Move Interleave.txt job options file from Gleam to here
 19-Jun-08 v1r6p2  TU  Correct trigger rate by downlink rate when setting rate for LiveTimeSvc
 17-Jun-08 v1r6p1  MLK Changed type for EvtLiveTime from float to double
