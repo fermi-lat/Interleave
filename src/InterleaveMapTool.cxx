@@ -1,7 +1,7 @@
 /**  @file InterleaveMapTool.cxx
     @brief implementation of class InterleaveMapTool
     
-  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/InterleaveMapTool.cxx,v 0.1 2007/11/09 19:06:19 usher Exp $  
+  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/InterleaveMapTool.cxx,v 1.1 2007/11/16 15:38:23 usher Exp $  
 */
 
 #include "IInterleaveMap.h"
@@ -26,7 +26,7 @@ This provides a mechanisn for relating back to the original intput ntuple row fo
 generated events. 
 
 */
-
+//HMK do I take this out?? Aug,2010
 static const InterfaceID IID_InterleaveMapTool("InterleaveMapTool", 1 , 0);
 
 class InterleaveMapTool : public AlgTool, virtual public IInterleaveMap
@@ -63,8 +63,9 @@ private:
     StringProperty     m_mapName;     ///< name of the map tree
 };
 
-static ToolFactory<InterleaveMapTool> s_factory;
-const IToolFactory& InterleaveMapToolFactory = s_factory;
+//static ToolFactory<InterleaveMapTool> s_factory;
+//const IToolFactory& InterleaveMapToolFactory = s_factory;
+DECLARE_TOOL_FACTORY(InterleaveMapTool);
 
 //------------------------------------------------------------------------
 InterleaveMapTool::InterleaveMapTool(const std::string& type, 

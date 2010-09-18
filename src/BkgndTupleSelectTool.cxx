@@ -1,7 +1,7 @@
 /**  @file BkgndTupleSelectTool.cxx
     @brief implementation of class BkgndTupleSelectTool
     
-  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BkgndTupleSelectTool.cxx,v 1.18 2008/05/19 04:24:13 usher Exp $  
+  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BkgndTupleSelectTool.cxx,v 1.19 2008/06/17 22:13:59 kocian Exp $  
 */
 
 #include "IBkgndTupleSelectTool.h"
@@ -137,8 +137,9 @@ private:
     StringArrayProperty  m_disableList;
 };
 
-static ToolFactory<BkgndTupleSelectTool> s_factory;
-const IToolFactory& BkgndTupleSelectToolFactory = s_factory;
+//static ToolFactory<BkgndTupleSelectTool> s_factory;
+//const IToolFactory& BkgndTupleSelectToolFactory = s_factory;
+DECLARE_TOOL_FACTORY(BkgndTupleSelectTool);
 
 //------------------------------------------------------------------------
 BkgndTupleSelectTool::BkgndTupleSelectTool(const std::string& type, 
