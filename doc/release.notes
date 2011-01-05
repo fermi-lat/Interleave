@@ -3,11 +3,12 @@
 
   package Interleave
   Package coordinators: T. Burnett
-$Id: release.notes,v 1.56 2009/12/17 00:23:30 usher Exp $
+$Id: release.notes,v 1.57 2010/06/12 17:28:57 jrb Exp $
 
 @verbatim
  * EOH *
 
+ Interleave-01-06-08 05-Jan-2011 TU add Cal params to test program
  Interleave-01-06-07 12-Jun-2010    jrb upgrades for SCons builds
  Interleave-01-06-04 13-Nov-2009    jrb Updates for SCons
 16-Dec-09 v1r6p6  TU  Fix the job options file
