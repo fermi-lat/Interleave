@@ -20,7 +20,7 @@
  *  @brief Register the SampledBackground
  *  
  *   @author Toby Burnett
- *   $Header$
+ *   $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/Register.cxx,v 1.1.1.1 2005/12/14 20:38:27 burnett Exp $
  */
 class RegisterSampledBackground : public AlgTool, virtual public IRegisterSource {
 public:
@@ -59,8 +59,8 @@ StatusCode RegisterSampledBackground::registerMe(IFluxSvc* fsvc)
     static RemoteSpectrumFactory<SampledBackground> factory(fsvc);
 
     //  needs to use the same random engine as FluxSvc ?
-    HepRandomEngine* engine = fsvc->getRandomEngine();
-    HepRandom::setTheEngine(engine);
+    CLHEP::HepRandomEngine* engine = fsvc->getRandomEngine();
+    CLHEP::HepRandom::setTheEngine(engine);
 
     // Get the initial location from FluxSvc and store in the CrLocation singleton
     //?CrLocation::instance()->setFluxSvc(fsvc);

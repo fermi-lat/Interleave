@@ -1,7 +1,7 @@
 /**  @file BkgndTupleSelectTool.cxx
     @brief implementation of class BkgndTupleSelectTool
     
-  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BkgndTupleSelectTool.cxx,v 1.18 2008/05/19 04:24:13 usher Exp $  
+  $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/BkgndTupleSelectTool.cxx,v 1.19 2008/06/17 22:13:59 kocian Exp $  
 */
 
 #include "IBkgndTupleSelectTool.h"
@@ -416,7 +416,7 @@ void BkgndTupleSelectTool::setCurrentTree(double x)
         throw std::runtime_error("BkgndTupleSelectTool::setCurrentTree: no events in the tree");
     }
     
-    m_eventOffset = (unsigned int)(RandFlat::shoot()*(length - 1));
+    m_eventOffset = (unsigned int)(CLHEP::RandFlat::shoot()*(length - 1));
 
     // point tree to buffer for copying events:
     setLeafPointers();

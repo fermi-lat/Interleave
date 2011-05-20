@@ -3,11 +3,12 @@
 
   package Interleave
   Package coordinators: T. Burnett
-$Id: release.notes,v 1.57 2010/06/12 17:28:57 jrb Exp $
+$Id: release.notes,v 1.58 2011/01/05 16:04:18 usher Exp $
 
 @verbatim
  * EOH *
 
+ Interleave-01-06-09 20-May-2011 HMK CLHEP 2.1.0.1 
  Interleave-01-06-08 05-Jan-2011 TU add Cal params to test program
  Interleave-01-06-07 12-Jun-2010    jrb upgrades for SCons builds
  Interleave-01-06-04 13-Nov-2009    jrb Updates for SCons
