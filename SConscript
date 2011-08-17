@@ -1,5 +1,5 @@
 # -*- python -*-
-# $Header: /nfs/slac/g/glast/ground/cvs/Interleave/SConscript,v 1.11 2011/01/05 16:04:18 usher Exp $
+# $Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/Interleave/SConscript,v 1.12 2011/05/20 15:50:03 heather Exp $
 # Authors: T. Burnett <tburnett@u.washington.edu> 
 # Version: Interleave-01-06-09
 Import('baseEnv')
@@ -21,6 +21,7 @@ test_Interleave = progEnv.GaudiProgram('test_Interleave',
 progEnv.Tool('registerTargets', package = 'Interleave',
              libraryCxts = [[Interleave,libEnv]],
              testAppCxts = [[test_Interleave, progEnv]],
+             xml= listFiles(['xml/*']),
              jo=['src/test/jobOptions.txt', 'src/interleave.txt',
                  'src/test/testXml/jobOptionsXml.txt'])
 
