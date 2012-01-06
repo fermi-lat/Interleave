@@ -1,7 +1,7 @@
 # -*- python -*-
-# $Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/Interleave/SConscript,v 1.14 2011/08/17 01:14:21 jrb Exp $
+# $Header: /nfs/slac/g/glast/ground/cvs/Interleave/SConscript,v 1.15 2011/12/12 20:52:34 heather Exp $
 # Authors: T. Burnett <tburnett@u.washington.edu> 
-# Version: Interleave-01-07-00
+# Version: Interleave-01-07-01
 Import('baseEnv')
 Import('listFiles')
 Import('packages')
