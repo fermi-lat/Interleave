@@ -1,5 +1,5 @@
 # -*- python -*-
-# $Header: /nfs/slac/g/glast/ground/cvs/Interleave/SConscript,v 1.16 2012/01/06 21:56:11 lsrea Exp $
+# $Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/Interleave/SConscript,v 1.17 2012/01/08 01:48:01 lsrea Exp $
 # Authors: T. Burnett <tburnett@u.washington.edu> 
 # Version: Interleave-01-07-02
 Import('baseEnv')
@@ -9,8 +9,8 @@ progEnv = baseEnv.Clone()
 libEnv = baseEnv.Clone()
 
 libEnv.Tool('addLinkDeps', package='Interleave', toBuild='component')
-Interleave = libEnv.SharedLibrary('Interleave',
-                                  listFiles(['src/*.cxx', 'src/Dll/*.cxx']))
+Interleave = libEnv.ComponentLibrary('Interleave',
+                                     listFiles(['src/*.cxx']))
 
 
 progEnv.Tool('InterleaveLib')
