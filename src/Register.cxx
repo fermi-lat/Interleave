@@ -20,7 +20,7 @@
  *  @brief Register the SampledBackground
  *  
  *   @author Toby Burnett
- *   $Header$
+ *   $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/Register.cxx,v 1.1.1.1 2005/12/14 20:38:27 burnett Exp $
  */
 class RegisterSampledBackground : public AlgTool, virtual public IRegisterSource {
 public:
@@ -36,8 +36,9 @@ public:
 };
 
 // Static factory for instantiation of algtool objects
-static ToolFactory<RegisterSampledBackground> s_factory;
-const IToolFactory& RegisterSampledBackgroundFactory = s_factory;
+//static ToolFactory<RegisterSampledBackground> s_factory;
+//const IToolFactory& RegisterSampledBackgroundFactory = s_factory;
+DECLARE_TOOL_FACTORY(RegisterSampledBackground);
 
 // Standard Constructor
 RegisterSampledBackground::RegisterSampledBackground(const std::string& type, 

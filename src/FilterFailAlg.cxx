@@ -2,7 +2,7 @@
 
 @brief declaration and definition of the class FilterFailAlg
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/FilterFailAlg.cxx,v 1.30 2007/06/15 20:09:01 usher Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/FilterFailAlg.cxx,v 1.2 2011/12/12 20:52:34 heather Exp $
 
 */
 
@@ -31,8 +31,9 @@ private:
 
 //------------------------------------------------------------------------
 
-static const AlgFactory<FilterFailAlg>  Factory;
-const IAlgFactory& FilterFailAlgFactory = Factory;
+//static const AlgFactory<FilterFailAlg>  Factory;
+//const IAlgFactory& FilterFailAlgFactory = Factory;
+DECLARE_ALGORITHM_FACTORY(FilterFailAlg);
 
 //------------------------------------------------------------------------
 //! ctor

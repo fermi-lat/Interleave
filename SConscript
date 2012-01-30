@@ -1,7 +1,7 @@
 # -*- python -*-
-# $Header: /nfs/slac/g/glast/ground/cvs/Interleave/SConscript,v 1.10 2010/06/12 17:28:57 jrb Exp $
+# $Header: /nfs/slac/g/glast/ground/cvs/Interleave/SConscript,v 1.19 2012/01/14 23:15:34 jrb Exp $
 # Authors: T. Burnett <tburnett@u.washington.edu> 
-# Version: Interleave-01-06-07-gr01
+# Version: Interleave-01-06-07-gr02
 Import('baseEnv')
 Import('listFiles')
 Import('packages')
@@ -9,8 +9,8 @@ progEnv = baseEnv.Clone()
 libEnv = baseEnv.Clone()
 
 libEnv.Tool('addLinkDeps', package='Interleave', toBuild='component')
-Interleave = libEnv.SharedLibrary('Interleave',
-                                  listFiles(['src/*.cxx', 'src/Dll/*.cxx']))
+Interleave = libEnv.ComponentLibrary('Interleave',
+                                     listFiles(['src/*.cxx']))
 
 
 progEnv.Tool('InterleaveLib')
@@ -21,7 +21,7 @@ test_Interleave = progEnv.GaudiProgram('test_Interleave',
 progEnv.Tool('registerTargets', package = 'Interleave',
              libraryCxts = [[Interleave,libEnv]],
              testAppCxts = [[test_Interleave, progEnv]],
-             xml=listFiles(['xml/*]'),
+             xml= listFiles(['xml/*']),
              jo=['src/test/jobOptions.txt', 'src/interleave.txt',
                  'src/test/testXml/jobOptionsXml.txt'])
 

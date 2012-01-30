@@ -1,7 +1,7 @@
 /** @file TestAlg.cxx
     @brief Used for test program
 
- $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/test/TestAlg.cxx,v 1.7 2008/02/12 21:13:10 heather Exp $
+ $Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/test/TestAlg.cxx,v 1.8 2009/12/16 19:36:20 usher Exp $
 
 */
 
@@ -75,8 +75,9 @@ private:
 };
 
 
-static const AlgFactory<TestAlg>  Factory;
-const IAlgFactory& CRTestAlgFactory = Factory;
+//static const AlgFactory<TestAlg>  Factory;
+//const IAlgFactory& CRTestAlgFactory = Factory;
+DECLARE_ALGORITHM_FACTORY(CRTestAlg);
 
 //------------------------------------------------------------------------------
 //

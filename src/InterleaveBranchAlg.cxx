@@ -2,7 +2,7 @@
 
 @brief declaration and definition of the class InterleaveBranchAlg
 
-$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/InterleaveBranchAlg.cxx,v 1.00 2008/02/08 21:32:11 usher Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/Interleave/src/InterleaveBranchAlg.cxx,v 1.2 2011/12/12 20:52:34 heather Exp $
 
 */
 #include "GaudiKernel/Algorithm.h"
@@ -40,8 +40,9 @@ private:
 
 //------------------------------------------------------------------------
 
-static const AlgFactory<InterleaveBranchAlg>  Factory;
-const IAlgFactory& InterleaveBranchAlgFactory = Factory;
+//static const AlgFactory<InterleaveBranchAlg>  Factory;
+//const IAlgFactory& InterleaveBranchAlgFactory = Factory;
+DECLARE_ALGORITHM_FACTORY(InterleaveBranchAlg);
 
 //------------------------------------------------------------------------
 //! ctor
