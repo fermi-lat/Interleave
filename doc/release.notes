@@ -3,11 +3,12 @@
 
   package Interleave
   Package coordinators: T. Burnett
-$Id: release.notes,v 1.57 2010/06/12 17:28:57 jrb Exp $
+$Id: release.notes,v 1.57.4.1 2011/08/19 02:48:09 heather Exp $
 
 @verbatim
  * EOH *
 
+ Interleave-01-06-07-tr01 10-Feb-2012  lsrea Fix the jO for the unit test
  Interleave-01-06-07-gr01 18-Aug-2011 hmk handle XML files for SCons
  Interleave-01-06-07 12-Jun-2010    jrb upgrades for SCons builds
  Interleave-01-06-04 13-Nov-2009    jrb Updates for SCons
